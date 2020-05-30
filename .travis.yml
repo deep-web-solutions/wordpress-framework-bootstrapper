@@ -7,11 +7,6 @@ notifications:
     on_success: never
     on_failure: change
 
-php:
-  - '7.3'
-  - '7.4'
-  - nightly
-
 services:
   - mysql
 
@@ -40,19 +35,17 @@ env:
 
 matrix:
   include:
-    - php: 7.3
-      env: WP_VERSION=5.3
     - php: 7.4
-      env: WP_VERSION=5.3
+      env: WP_VERSION=nightly
+    - php: 7.4
+      env: WP_VERSION=latest
     - php: 7.4
       env: WP_VERSION=5.4
-    - php: 7.4
-      env: WP_VERSION=latest
-    - php: nightly
-      env: WP_VERSION=latest
+    - php: 7.3 # just below the min requirements
+      env: WP_VERSION=5.3 # just below the min requirements
   allow_failures:
-    - php: nightly
     - env: WP_VERSION=latest
+    - env: WP_VERSION=nightly
 
 cache:
   apt: false
