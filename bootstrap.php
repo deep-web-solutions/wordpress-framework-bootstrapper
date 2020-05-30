@@ -74,15 +74,14 @@ function dws_wp_framework_check_php_wp_requirements_met( string $min_php_version
  *
  * @SuppressWarnings(PHPMD.UnusedFormalParameter)
  *
- * @param string $component_name The name of the component that wants to record the error.
- * @param string $component_version The version of the component that wants to record the error.
- * @param string $min_php_version The minimum PHP version required to run.
- * @param string $min_wp_version The minimum WP version required to run.
- * @param array $args Associative array of other variables that should be made available in the template's context.
- *
+ * @since   1.0.0
  * @version 1.0.0
  *
- * @since   1.0.0
+ * @param   string  $component_name     The name of the component that wants to record the error.
+ * @param   string  $component_version  The version of the component that wants to record the error.
+ * @param   string  $min_php_version    The minimum PHP version required to run.
+ * @param   string  $min_wp_version     The minimum WP version required to run.
+ * @param   array   $args               Associative array of other variables that should be made available in the template's context.
  */
 function dws_wp_framework_output_requirements_error( string $component_name, string $component_version, string $min_php_version, string $min_wp_version, array $args = array() ) {
 	add_action(
