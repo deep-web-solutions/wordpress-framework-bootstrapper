@@ -8,7 +8,9 @@ notifications:
     on_failure: change
 
 php:
+  - '7.3'
   - '7.4'
+  - nightly
 
 services:
   - mysql
@@ -35,9 +37,22 @@ env:
     - TEST_SITE_WP_DOMAIN="localhost:8888"
     - TEST_SITE_ADMIN_EMAIL="admin@localhost.test"
     - SNIFF=1
-  matrix:
-    - WP_VERSION=5.4
-    - WP_VERSION=latest
+
+matrix:
+  include:
+    - php: 7.3
+      env: WP_VERSION=5.3
+    - php: 7.4
+      env: WP_VERSION=5.3
+    - php: 7.4
+      env: WP_VERSION=5.4
+    - php: 7.4
+      env: WP_VERSION=latest
+    - php: nightly
+      env: WP_VERSION=latest
+  allow_failures:
+    - php: nightly
+    - env: WP_VERSION=latest
 
 cache:
   apt: false
@@ -91,6 +106,6 @@ script:
   - if [[ "$SNIFF" == "1" ]]; then vendor/bin/phpcs $TRAVIS_BUILD_DIR ; fi
   # Run tests.
   - codecept run unit
-  - codecept run integration
+  - codecept run wpunit
   - codecept run functional
   - codecept run acceptance
