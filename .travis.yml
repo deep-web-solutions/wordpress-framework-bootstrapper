@@ -41,6 +41,10 @@ matrix:
       env: WP_VERSION=latest
     - php: 7.4
       env: WP_VERSION=5.4
+    - php: 7.4
+      env: WP_VERSION=5.3 # just below the min requirements
+    - php: 7.3 # just below the min requirements
+      env: WP_VERSION=5.4
     - php: 7.3 # just below the min requirements
       env: WP_VERSION=5.3 # just below the min requirements
   allow_failures:
@@ -69,7 +73,7 @@ before_install:
 
 install:
   - composer self-update
-  - composer install --prefer-source --no-interaction
+  - composer install --prefer-source --no-interaction --ignore-platform-reqs # Ignore platform requirements to install on lower PHP version and check that execution indeed fails.
   # Install and configure WordPress.
   - cd $WP_ROOT_FOLDER
   - wp core download --version=$WP_VERSION
@@ -79,7 +83,7 @@ install:
   - wp core update-db
   # Copy the plugin to the plugins directory.
   - git clone --single-branch --branch master https://github.com/Deep-Web-Solutions-GmbH/wordpress-framework-test-plugin.git $WP_ROOT_FOLDER/wp-content/plugins/wordpress-framework-test-plugin
-  - composer install --no-dev --no-interaction --working-dir=$WP_ROOT_FOLDER/wp-content/plugins/wordpress-framework-test-plugin
+  - composer install --no-dev --no-interaction --working-dir=$WP_ROOT_FOLDER/wp-content/plugins/wordpress-framework-test-plugin --ignore-platform-reqs
   - rm -rfv $WP_ROOT_FOLDER/wp-content/plugins/wordpress-framework-test-plugin/vendor/deep-web-solutions/wp-framework-bootstrapper/*
   - cp -r $TRAVIS_BUILD_DIR $WP_ROOT_FOLDER/wp-content/plugins/wordpress-framework-test-plugin/vendor/deep-web-solutions/wp-framework-bootstrapper
   # Generate the db export.
