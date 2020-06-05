@@ -15,7 +15,7 @@
     },
     {
       "name": "Contributors",
-      "homepage": "https://github.com/Deep-Web-Solutions-GmbH/wordpress-framework-bootstrapper/graphs/contributors"
+      "homepage": "https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/graphs/contributors"
     }
   ],
 
@@ -30,6 +30,7 @@
     "phpcompatibility/php-compatibility": "*",
     "phpcompatibility/phpcompatibility-wp": "*",
     "wp-coding-standards/wpcs": "*",
+    "sllh/composer-versions-check": "*",
 
     "lucatume/wp-browser": "^2.4",
     "codeception/module-asserts": "^1.0",
