@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 
 <?php do_action( 'dws_wp_framework_requirements_error_before', $component_name, $component_version, $min_php_version, $min_wp_version, $args ); ?>
 
-<div class="error notice">
+<div class="error notice dws-requirements-error">
 	<?php do_action( 'dws_wp_framework_requirements_error_start', $component_name, $component_version, $min_php_version, $min_wp_version, $args ); ?>
 
 	<p>
