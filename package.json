@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "title": "DWS WordPress Framework - Bootstrapper",
   "author": "Deep Web Solutions GmbH",
-  "homepage": "https://github.com/Deep-Web-Solutions-GmbH/wordpress-framework-bootstrapper#readme",
+  "homepage": "https://github.com/deep-web-solutions/wordpress-framework-bootstrapper#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Deep-Web-Solutions-GmbH/wordpress-framework-bootstrapper.git"
+    "url": "https://github.com/deep-web-solutions/wordpress-framework-bootstrapper.git"
   },
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/Deep-Web-Solutions-GmbH/wordpress-framework-bootstrapper/issues"
+    "url": "https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/issues"
   },
   "devDependencies": {
     "grunt": "~1.1.0",

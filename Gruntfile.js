@@ -23,7 +23,7 @@ module.exports = function( grunt ) {
                     potFilename: 'dws-wp-framework-bootstrapper.pot',
                     mainFile: 'bootstrap.php',
                     potHeaders: {
-                        'report-msgid-bugs-to': 'https://github.com/Deep-Web-Solutions-GmbH/wordpress-framework-bootstrapper/issues',
+                        'report-msgid-bugs-to': 'https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/issues',
                         'project-id-version': '<%= package.title %> <%= package.version %>'
                     },
                     processPot: function( pot ) {
