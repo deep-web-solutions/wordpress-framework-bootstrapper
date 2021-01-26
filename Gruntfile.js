@@ -28,6 +28,21 @@ module.exports = function( grunt ) {
                     },
                     processPot: function( pot ) {
                         delete pot.headers['x-generator'];
+
+                        // include the default value of the constant DWS_WP_FRAMEWORK_WHITELABEL_NAME
+                        pot.translations['']['DWS_WP_FRAMEWORK_WHITELABEL_NAME'] = {
+                            msgid: 'Deep Web Solutions',
+                            comments: { reference: 'bootstrap.php:41' },
+                            msgstr: [ '' ]
+                        };
+
+                        // include the default value of the constant DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME
+                        pot.translations['']['DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME'] = {
+                            msgid: 'Deep Web Solutions: Framework Bootstrapper',
+                            comments: { reference: 'bootstrap.php:44' },
+                            msgstr: [ '' ]
+                        };
+
                         return pot;
                     },
                     type: 'wp-plugin',

@@ -21,7 +21,7 @@
  * Domain Path:         /src/languages
  */
 
-namespace DeepWebSolutions\Framework\Bootstrap;
+namespace DeepWebSolutions\Framework;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	return; // Since this file is autoloaded by Composer, 'exit' breaks all external dev tools.
@@ -35,17 +35,17 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 // Define minimum environment requirements.
 define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_VERSION', 'v1.0.0' );
 define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_PHP', '7.4' );
-define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_WP', '5.4' );
+define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_WP', '5.6' );
 
 // The following settings can be overwritten in a configuration file or could be set by other versions as well.
-defined( 'DWS_WP_FRAMEWORK_WHITELABEL_NAME' ) || define( 'DWS_WP_FRAMEWORK_WHITELABEL_NAME', 'Deep Web Solutions' );
-defined( 'DWS_WP_FRAMEWORK_WHITELABEL_LOGO' ) || define( 'DWS_WP_FRAMEWORK_WHITELABEL_LOGO', __DIR__ . '/src/assets/dws_logo.svg' );
+defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_NAME' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_NAME', 'Deep Web Solutions' );
+defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO', __DIR__ . '/src/assets/dws_logo.svg' );
 
-defined( 'DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME' ) || define( 'DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME', DWS_WP_FRAMEWORK_WHITELABEL_NAME . ': Framework Bootstrapper' );
-defined( 'DWS_WP_FRAMEWORK_TEMP_DIR_NAME' ) || define( 'DWS_WP_FRAMEWORK_TEMP_DIR_NAME', 'deep-web-solutions' );
+defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME', constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_NAME' ) . ': Framework Bootstrapper' );
+defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME', 'deep-web-solutions' );
 
-defined( 'DWS_WP_FRAMEWORK_TEMP_DIR_PATH' ) || define( 'DWS_WP_FRAMEWORK_TEMP_DIR_PATH', wp_get_upload_dir() ['basedir'] . DIRECTORY_SEPARATOR . DWS_WP_FRAMEWORK_TEMP_DIR_NAME . DIRECTORY_SEPARATOR );
-defined( 'DWS_WP_FRAMEWORK_TEMP_DIR_URL' ) || define( 'DWS_WP_FRAMEWORK_TEMP_DIR_URL', wp_get_upload_dir() ['baseurl'] . '/' . DWS_WP_FRAMEWORK_TEMP_DIR_NAME . '/' );
+defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_PATH' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_PATH', wp_get_upload_dir() ['basedir'] . DIRECTORY_SEPARATOR . constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME' ) . DIRECTORY_SEPARATOR );
+defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_URL' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_URL', wp_get_upload_dir() ['baseurl'] . '/' . constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME' ) . '/' );
 
 // Define a few general-use functions for requirement checking.
 /**
@@ -59,7 +59,7 @@ defined( 'DWS_WP_FRAMEWORK_TEMP_DIR_URL' ) || define( 'DWS_WP_FRAMEWORK_TEMP_DIR
  *
  * @return  bool
  */
-function dws_wp_framework_check_php_wp_requirements_met( string $min_php_version, string $min_wp_version ) {
+function dws_wp_framework_check_php_wp_requirements_met( string $min_php_version, string $min_wp_version ): bool {
 	if ( version_compare( PHP_VERSION, $min_php_version, '<' ) ) {
 		return false;
 	} elseif ( version_compare( $GLOBALS['wp_version'], $min_wp_version, '<' ) ) {
@@ -83,7 +83,7 @@ function dws_wp_framework_check_php_wp_requirements_met( string $min_php_version
  * @param   string  $min_wp_version     The minimum WP version required to run.
  * @param   array   $args               Associative array of other variables that should be made available in the template's context.
  */
-function dws_wp_framework_output_requirements_error( string $component_name, string $component_version, string $min_php_version, string $min_wp_version, array $args = array() ) {
+function dws_wp_framework_output_requirements_error( string $component_name, string $component_version, string $min_php_version, string $min_wp_version, array $args = array() ): void {
 	add_action(
 		'admin_notices',
 		function() use ( $component_name, $component_version, $min_php_version, $min_wp_version, $args ) {
@@ -118,5 +118,5 @@ if ( dws_wp_framework_check_php_wp_requirements_met( $dws_bootstrapper_min_php_v
 	define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_INIT', true );
 } else {
 	define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_INIT', false );
-	dws_wp_framework_output_requirements_error( DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME, $dws_bootstrapper_version, $dws_bootstrapper_min_php_version, $dws_bootstrapper_min_wp_version );
+	dws_wp_framework_output_requirements_error( constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME' ), $dws_bootstrapper_version, $dws_bootstrapper_min_php_version, $dws_bootstrapper_min_wp_version );
 }

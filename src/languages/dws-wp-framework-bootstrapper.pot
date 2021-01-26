@@ -1,4 +1,4 @@
-# Copyright (C) 2020
+# Copyright (C) 2021
 # This file is distributed under the same license as the  package.
 msgid ""
 msgstr ""
@@ -6,31 +6,39 @@ msgstr ""
 "Report-Msgid-Bugs-To: "
 "https://github.com/Deep-Web-Solutions-GmbH/wordpress-framework-bootstrapper/"
 "issues\n"
-"POT-Creation-Date: 2020-05-30 18:37:31+00:00\n"
+"POT-Creation-Date: 2021-01-26 17:32:24+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: templates/requirements-error.php:29
+#: templates/requirements-error.php:31
 #. translators: 1: Component name, 2: Component version
 msgid ""
 "<strong>%1$s (%2$s)</strong> error: Your environment doesn't meet all of "
-"the system requirements listed below."
+"the system requirements listed below:"
 msgstr ""
 
-#: templates/requirements-error.php:45 templates/requirements-error.php:49
+#: templates/requirements-error.php:47 templates/requirements-error.php:51
 #. translators: %s: PHP version
 #. translators: %s: WordPress version
 msgid "You're running version %s"
 msgstr ""
 
-#: templates/requirements-error.php:58
+#: templates/requirements-error.php:60
 msgid ""
 "If you need to upgrade your version of PHP you can ask your hosting company "
 "for assistance, and if you need help upgrading WordPress you can refer to "
 "<a href=\"https://wordpress.org/support/article/updating-wordpress/\" "
 "target=\"_blank\">the Codex</a>."
+msgstr ""
+
+#: bootstrap.php:41
+msgid "Deep Web Solutions"
+msgstr ""
+
+#: bootstrap.php:44
+msgid "Deep Web Solutions: Framework Bootstrapper"
 msgstr ""

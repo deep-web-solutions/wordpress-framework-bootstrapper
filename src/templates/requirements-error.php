@@ -21,12 +21,14 @@ defined( 'ABSPATH' ) || exit;
 <?php do_action( 'dws_wp_framework_requirements_error_before', $component_name, $component_version, $min_php_version, $min_wp_version, $args ); ?>
 
 <div class="error notice">
+	<?php do_action( 'dws_wp_framework_requirements_error_start', $component_name, $component_version, $min_php_version, $min_wp_version, $args ); ?>
+
 	<p>
 		<?php
 		echo wp_kses(
 			sprintf(
 				/* translators: 1: Component name, 2: Component version */
-				__( '<strong>%1$s (%2$s)</strong> error: Your environment doesn\'t meet all of the system requirements listed below.', 'dws-wp-framework-bootstrapper' ),
+				__( '<strong>%1$s (%2$s)</strong> error: Your environment doesn\'t meet all of the system requirements listed below:', 'dws-wp-framework-bootstrapper' ),
 				$component_name,
 				$component_version
 			),
@@ -68,6 +70,8 @@ defined( 'ABSPATH' ) || exit;
 		);
 		?>
 	</p>
+
+	<?php do_action( 'dws_wp_framework_requirements_error_end', $component_name, $component_version, $min_php_version, $min_wp_version, $args ); ?>
 </div>
 
 <?php do_action( 'dws_wp_framework_requirements_error_after', $component_name, $component_version, $min_php_version, $min_wp_version, $args ); ?>
