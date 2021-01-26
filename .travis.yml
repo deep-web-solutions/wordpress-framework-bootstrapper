@@ -84,7 +84,7 @@ install:
   - wp rewrite structure '/%postname%/' --hard
   - wp core update-db
   # Copy the plugin to the plugins directory.
-  - git clone --single-branch --branch master https://github.com/deep-web-solutions/wordpress-framework-test-plugin.git $WP_ROOT_FOLDER/wp-content/plugins/wordpress-framework-test-plugin
+  - git clone --single-branch --branch master https://github.com/deep-web-solutions/wordpress-plugins-utility.git $WP_ROOT_FOLDER/wp-content/plugins/wordpress-framework-test-plugin
   - composer install --no-dev --no-interaction --working-dir=$WP_ROOT_FOLDER/wp-content/plugins/wordpress-framework-test-plugin --ignore-platform-reqs
   - rm -rfv $WP_ROOT_FOLDER/wp-content/plugins/wordpress-framework-test-plugin/vendor/deep-web-solutions/wp-framework-bootstrapper/*
   - cp -r $TRAVIS_BUILD_DIR $WP_ROOT_FOLDER/wp-content/plugins/wordpress-framework-test-plugin/vendor/deep-web-solutions/wp-framework-bootstrapper
