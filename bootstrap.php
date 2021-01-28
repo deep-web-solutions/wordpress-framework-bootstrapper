@@ -21,41 +21,74 @@
  * Domain Path:         /src/languages
  */
 
-namespace DeepWebSolutions\Framework\Bootstrap;
+namespace DeepWebSolutions\Framework;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	return; // Since this file is autoloaded by Composer, 'exit' breaks all external dev tools.
 }
 
-// Start by autoloading dependencies and defining a few functions for running the bootstrapper. The conditional check makes the whole thing compatible with Composer-based WP management.
+// Start by autoloading dependencies and defining a few functions for running the bootstrapper.
+// The conditional check makes the whole thing compatible with Composer-based WP management.
 file_exists( __DIR__ . '/vendor/autoload.php' ) && require_once __DIR__ . '/vendor/autoload.php';
 
-// Define framework-level constants. These can usually be overwritten inside the main plugin.
-require_once 'bootstrap-config.php';
+// Load whitelabel settings
+require_once 'bootstrap-whitelabel.php';
 
-// Define minimum environment requirements.
-define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_VERSION', 'v1.0.0' );
-define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_PHP', '7.4' );
-define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_WP', '5.6' );
+// Define bootstrapper constants.
+define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME', dws_wp_framework_get_whitelabel_name() . ': Framework Bootstrapper' );
+define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_VERSION', '1.0.0' );
 
 /**
- * Registers the language files for the bootstrapper's textdomain.
+ * Returns the whitelabel name of the framework's bootstrapper within the context of the current plugin.
  *
  * @since   1.0.0
  * @version 1.0.0
+ *
+ * @return  string
  */
-\add_action(
-	'init',
-	function() {
-		load_plugin_textdomain(
-			'dws-wp-framework-bootstrapper',
-			false,
-			dirname( plugin_basename( __FILE__ ) ) . '/src/languages'
-		);
-	}
-);
+function dws_wp_framework_get_bootstrapper_name(): string {
+	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME' );
+}
 
-// region A few general-use functions for requirement checking.
+/**
+ * Returns the version of the framework's bootstrapper within the context of the current plugin.
+ *
+ * @since   1.0.0
+ * @version 1.0.0
+ *
+ * @return  string
+ */
+function dws_wp_framework_get_bootstrapper_version(): string {
+	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_VERSION' );
+}
+
+// Define minimum environment requirements.
+define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_PHP', '7.4' );
+define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_WP', '5.0' );
+
+/**
+ * Returns the minimum PHP version required to run the Bootstrapper of the framework's bootstrapper within the context of the current plugin.
+ *
+ * @since   1.0.0
+ * @version 1.0.0
+ *
+ * @return  string
+ */
+function dws_wp_framework_get_bootstrapper_min_php(): string {
+	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_PHP' );
+}
+
+/**
+ * Returns the minimum WP version required to run the Bootstrapper of the framework's bootstrapper within the context of the current plugin.
+ *
+ * @since   1.0.0
+ * @version 1.0.0
+ *
+ * @return  string
+ */
+function dws_wp_framework_get_bootstrapper_min_wp(): string {
+	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_WP' );
+}
 
 /**
  * Checks if the system requirements are met.
@@ -109,19 +142,27 @@ function dws_wp_framework_output_requirements_error( string $component_name, str
 	}
 }
 
-// endregion
+/**
+ * Registers the language files for the bootstrapper's textdomain.
+ *
+ * @since   1.0.0
+ * @version 1.0.0
+ */
+\add_action(
+	'init',
+	function() {
+		load_plugin_textdomain(
+			'dws-wp-framework-bootstrapper',
+			false,
+			dirname( plugin_basename( __FILE__ ) ) . '/src/languages'
+		);
+	}
+);
 
-// region Bootstrap the bootstrapper (maybe)!
-
-$dws_bootstrapper_version         = constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_VERSION' );
-$dws_bootstrapper_min_php_version = constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_PHP' );
-$dws_bootstrapper_min_wp_version  = constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_WP' );
-
-if ( dws_wp_framework_check_php_wp_requirements_met( $dws_bootstrapper_min_php_version, $dws_bootstrapper_min_wp_version ) ) {
+// Bootstrap the bootstrapper (maybe)!
+if ( dws_wp_framework_check_php_wp_requirements_met( dws_wp_framework_get_bootstrapper_min_php(), dws_wp_framework_get_bootstrapper_min_wp() ) ) {
 	define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_INIT', true );
 } else {
 	define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_INIT', false );
-	dws_wp_framework_output_requirements_error( constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME' ), $dws_bootstrapper_version, $dws_bootstrapper_min_php_version, $dws_bootstrapper_min_wp_version );
+	dws_wp_framework_output_requirements_error( dws_wp_framework_get_bootstrapper_name(), dws_wp_framework_get_bootstrapper_version(), dws_wp_framework_get_bootstrapper_min_php(), dws_wp_framework_get_bootstrapper_min_wp() );
 }
-
-// endregion

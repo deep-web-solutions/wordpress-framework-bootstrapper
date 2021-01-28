@@ -1,7 +1,7 @@
 # DWS WordPress Framework - Bootstrapper
 
 **Contributors:** Antonius Hegyes, Deep Web Solutions GmbH  
-**Requires at least:** 5.6  
+**Requires at least:** 5.0 
 **Tested up to:** 5.6  
 **Requires PHP:** 7.4  
 **Stable tag:** 1.0.0  
