@@ -4,7 +4,7 @@
  *
  * @since   1.0.0
  * @version 1.0.0
- * @package DeepWebSolutions\WP-Bootstrapper\templates
+ * @package DeepWebSolutions\WP-Framework\Bootstrapper\templates
  *
  * @see     dws_wp_framework_output_requirements_error
  *
