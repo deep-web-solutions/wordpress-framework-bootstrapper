@@ -4,7 +4,7 @@
  *
  * @since               1.0.0
  * @version             1.0.0
- * @package             DeepWebSolutions\wordpress-framework-bootstrapper
+ * @package             DeepWebSolutions\WP-Bootstrapper
  * @author              Deep Web Solutions GmbH
  * @copyright           2021 Deep Web Solutions GmbH
  * @license             GPL-3.0-or-later
@@ -64,7 +64,7 @@ function dws_wp_framework_get_bootstrapper_version(): string {
 
 // Define minimum environment requirements.
 define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_PHP', '7.4' );
-define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_WP', '5.0' );
+define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_WP', '5.2' );
 
 /**
  * Returns the minimum PHP version required to run the Bootstrapper of the framework's bootstrapper within the context of the current plugin.
