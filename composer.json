@@ -19,9 +19,6 @@
     }
   ],
 
-  "require": {
-    "php": ">=7.4"
-  },
   "require-dev": {
     "phpmd/phpmd": "*",
     "squizlabs/php_codesniffer": "^3.5",
