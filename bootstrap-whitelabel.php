@@ -7,6 +7,8 @@ defined( 'ABSPATH' ) || exit;
 // Make sure that the whitelabel options are defined. If not, set the defaults.
 defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_NAME' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_NAME', 'Deep Web Solutions' );
 defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO', __DIR__ . '/src/assets/dws_logo.svg' );
+defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_EMAIL' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_EMAIL', 'support@deep-web-solutions.com' );
+defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_URL' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_URL', 'https://support.deep-web-solutions.com' );
 
 /**
  * Returns the whitelabel name of the framework within the context of the current plugin.
@@ -30,4 +32,28 @@ function dws_wp_framework_get_whitelabel_name(): string {
  */
 function dws_wp_framework_get_whitelabel_logo(): string {
 	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO' );
+}
+
+/**
+ * Returns the whitelabel support email of the framework within the context of the current plugin.
+ *
+ * @since   1.0.0
+ * @version 1.0.0
+ *
+ * @return  string
+ */
+function dws_wp_framework_get_whitelabel_support_email(): string {
+	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_EMAIL' );
+}
+
+/**
+ * Returns the whitelabel support URL of the framework within the context of the current plugin.
+ *
+ * @since   1.0.0
+ * @version 1.0.0
+ *
+ * @return  string
+ */
+function dws_wp_framework_get_whitelabel_support_url(): string {
+	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_URL' );
 }
