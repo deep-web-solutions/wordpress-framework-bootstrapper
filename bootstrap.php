@@ -143,7 +143,7 @@ function dws_wp_framework_output_requirements_error( string $component_name, str
 }
 
 /**
- * Registers the language files for the bootstrapper's textdomain.
+ * Registers the language files for the bootstrapper's text domain.
  *
  * @since   1.0.0
  * @version 1.0.0
