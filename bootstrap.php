@@ -13,6 +13,8 @@
  * Plugin Name:         DWS WordPress Framework Bootstrapper
  * Description:         A set of related functions that help bootstrap and version the other DWS WordPress Framework components.
  * Version:             1.0.0
+ * Requires at least:   5.5
+ * Requires PHP:        7.4
  * Author:              Deep Web Solutions GmbH
  * Author URI:          https://www.deep-web-solutions.com
  * License:             GPL-3.0+
@@ -64,7 +66,7 @@ function dws_wp_framework_get_bootstrapper_version(): string {
 
 // Define minimum environment requirements.
 define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_PHP', '7.4' );
-define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_WP', '5.2' );
+define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_WP', '5.5' );
 
 /**
  * Returns the minimum PHP version required to run the Bootstrapper of the framework's bootstrapper within the context of the current plugin.
