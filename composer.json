@@ -4,12 +4,12 @@
 
   "description": "A set of related functions that help bootstrap and version the other DWS WordPress Framework components.",
   "keywords": ["wordpress", "framework", "Deep Web Solutions", "bootstrapper"],
-  "homepage": "https://www.deep-web-solutions.de",
+  "homepage": "https://www.deep-web-solutions.com",
   "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "Antonius Hegyes",
-      "email": "a.hegyes@deep-web-solutions.de",
+      "email": "a.hegyes@deep-web-solutions.com",
       "homepage": "https://www.linkedin.com/in/tonyhegyes",
       "role": "Developer"
     },
