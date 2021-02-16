@@ -27,8 +27,8 @@ module.exports = function( grunt ) {
 						potHeaders      : {
 							'report-msgid-bugs-to'  : 'https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/issues',
 							'project-id-version'    : '<%= package.title %> <%= package.version %>',
-                            'poedit'     		    : true,
-                            'x-poedit-keywordslist' : true,
+							'poedit'     		    : true,
+							'x-poedit-keywordslist' : true,
 						},
 						processPot      : function( pot ) {
 							delete pot.headers['x-generator'];
