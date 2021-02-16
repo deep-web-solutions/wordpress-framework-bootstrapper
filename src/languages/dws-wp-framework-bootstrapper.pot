@@ -6,16 +6,27 @@ msgstr ""
 "Report-Msgid-Bugs-To: "
 "https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/"
 "issues\n"
-"POT-Creation-Date: 2021-02-13 17:50:17+00:00\n"
+"POT-Creation-Date: 2021-02-16 14:17:20+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
 
 #: templates/requirements-error.php:31
-#. translators: 1: Component name, 2: Component version
+#. translators: 1. Component name, 2. Component version
 msgid ""
 "<strong>%1$s (%2$s)</strong> error: Your environment doesn't meet all of "
 "the system requirements listed below:"
@@ -35,10 +46,10 @@ msgid ""
 "target=\"_blank\">the Codex</a>."
 msgstr ""
 
-#: bootstrap.php:41
+#: bootstrap-whitelabel.php:8
 msgid "Deep Web Solutions"
 msgstr ""
 
-#: bootstrap.php:44
+#: bootstrap.php:38
 msgid "Deep Web Solutions: Framework Bootstrapper"
 msgstr ""
