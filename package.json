@@ -13,7 +13,7 @@
     "url": "https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/issues"
   },
   "devDependencies": {
-    "grunt": "~1.1.0",
+    "grunt": "^1.3.0",
     "grunt-potomo": "^3.5.0",
     "grunt-wp-i18n": "^1.0.3",
     "load-grunt-tasks": "^5.1.0",
