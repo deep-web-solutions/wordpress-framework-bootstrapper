@@ -11,7 +11,7 @@ module.exports = function( grunt ) {
 	grunt.initConfig(
 		{
 			package : grunt.file.readJSON( 'package.json' ),
-			dirs : {
+			dirs    : {
 				lang : 'src/languages',
 				code : 'src'
 			},
