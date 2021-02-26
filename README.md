@@ -56,8 +56,8 @@ quite a lot of things.
 
 - Will you support earlier versions of WordPress and PHP?
 
-Unfortunately not. PHP 7.3 is close to EOL (March 2021) and we consider 7.4 to provide a few features that are absolutely amazing.
-Moreover, WP 5.5 introduced a few new features that we really want to use as well and we consider it to be one of the first versions
+Unfortunately not. PHP 7.3 is close to EOL (March 2021), and we consider 7.4 to provide a few features that are absolutely amazing.
+Moreover, WP 5.5 introduced a few new features that we really want to use as well, and we consider it to be one of the first versions
 of WordPress to have packed a more-or-less mature version of Gutenberg.
 
 If you're using older versions of either one, you should really consider upgrading at least for security reasons.
