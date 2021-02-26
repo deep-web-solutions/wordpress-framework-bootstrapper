@@ -42,10 +42,5 @@
     "files": [
       "bootstrap.php"
     ]
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "": "tests/_support"
-    }
   }
 }
