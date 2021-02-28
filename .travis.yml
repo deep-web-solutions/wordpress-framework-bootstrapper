@@ -28,12 +28,16 @@ matrix:
     - php: 7.0
       env: WP_VERSION=5.4
     - php: 5.6
+      dist: precise
       env: WP_VERSION=5.4
     - php: 5.5
+      dist: precise
       env: WP_VERSION=4.9
     - php: 5.4
+      dist: precise
       env: WP_VERSION=4.9
     - php: 5.3 # minimum version that the bootstrap.php file should run on
+      dist: precise
       env: WP_VERSION=4.9
   allow_failures:
     - env: WP_VERSION=latest
@@ -56,4 +60,4 @@ script:
   # Search for PHP syntax errors.
   - find -L $TRAVIS_BUILD_DIR -path $TRAVIS_BUILD_DIR/vendor -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
   # Run PHPCS.
-  - if [[ "$SNIFF" == "1" ]]; then vendor/bin/phpcs $TRAVIS_BUILD_DIR ; fi
+  - if [[ "$SNIFF" == "1" ]]; then vendor/bin/phpcs $TRAVIS_BUILD_DIR --standard=$TRAVIS_BUILD_DIR/phpcs.xml.dist ; fi
