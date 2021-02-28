@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
 defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_NAME' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_NAME', 'Deep Web Solutions' );
 defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO', __DIR__ . '/src/assets/dws_logo.svg' );
 
-$wp_upload_dir = wp_get_upload_dir();
+$wp_upload_dir = wp_get_upload_dir(); // phpcs:ignore
 defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME', 'deep-web-solutions' );
 defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_PATH' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_PATH', $wp_upload_dir['basedir'] . DIRECTORY_SEPARATOR . constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME' ) . DIRECTORY_SEPARATOR );
 defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_URL' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_URL', $wp_upload_dir['baseurl'] . '/' . dws_wp_framework_get_temp_dir_name() . '/' );
