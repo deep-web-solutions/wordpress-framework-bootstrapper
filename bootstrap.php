@@ -48,7 +48,7 @@ define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_VERSION', '1.0.0' );
  *
  * @return  string
  */
-function dws_wp_framework_get_bootstrapper_name(): string {
+function dws_wp_framework_get_bootstrapper_name() {
 	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME' );
 }
 
@@ -60,7 +60,7 @@ function dws_wp_framework_get_bootstrapper_name(): string {
  *
  * @return  string
  */
-function dws_wp_framework_get_bootstrapper_version(): string {
+function dws_wp_framework_get_bootstrapper_version() {
 	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_VERSION' );
 }
 
@@ -76,7 +76,7 @@ define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_WP', '5.5' );
  *
  * @return  string
  */
-function dws_wp_framework_get_bootstrapper_min_php(): string {
+function dws_wp_framework_get_bootstrapper_min_php() {
 	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_PHP' );
 }
 
@@ -88,7 +88,7 @@ function dws_wp_framework_get_bootstrapper_min_php(): string {
  *
  * @return  string
  */
-function dws_wp_framework_get_bootstrapper_min_wp(): string {
+function dws_wp_framework_get_bootstrapper_min_wp() {
 	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_WP' );
 }
 
@@ -103,7 +103,7 @@ function dws_wp_framework_get_bootstrapper_min_wp(): string {
  *
  * @return  bool
  */
-function dws_wp_framework_check_php_wp_requirements_met( string $min_php_version, string $min_wp_version ): bool {
+function dws_wp_framework_check_php_wp_requirements_met( $min_php_version, $min_wp_version ) {
 	if ( version_compare( PHP_VERSION, $min_php_version, '<' ) ) {
 		return false;
 	} elseif ( version_compare( $GLOBALS['wp_version'], $min_wp_version, '<' ) ) {
@@ -127,7 +127,7 @@ function dws_wp_framework_check_php_wp_requirements_met( string $min_php_version
  * @param   string  $min_wp_version     The minimum WP version required to run.
  * @param   array   $args               Associative array of other variables that should be made available in the template's context.
  */
-function dws_wp_framework_output_requirements_error( string $component_name, string $component_version, string $min_php_version, string $min_wp_version, array $args = array() ): void {
+function dws_wp_framework_output_requirements_error( $component_name, $component_version, $min_php_version, $min_wp_version, array $args = array() ) {
 	if ( did_action( 'admin_notices' ) ) {
 		_doing_it_wrong(
 			__FUNCTION__,

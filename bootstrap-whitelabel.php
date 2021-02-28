@@ -8,9 +8,10 @@ defined( 'ABSPATH' ) || exit;
 defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_NAME' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_NAME', 'Deep Web Solutions' );
 defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO', __DIR__ . '/src/assets/dws_logo.svg' );
 
+$wp_upload_dir = wp_get_upload_dir();
 defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME', 'deep-web-solutions' );
-defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_PATH' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_PATH', wp_get_upload_dir() ['basedir'] . DIRECTORY_SEPARATOR . constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME' ) . DIRECTORY_SEPARATOR );
-defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_URL' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_URL', wp_get_upload_dir() ['baseurl'] . '/' . dws_wp_framework_get_temp_dir_name() . '/' );
+defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_PATH' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_PATH', $wp_upload_dir['basedir'] . DIRECTORY_SEPARATOR . constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME' ) . DIRECTORY_SEPARATOR );
+defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_URL' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_URL', $wp_upload_dir['baseurl'] . '/' . dws_wp_framework_get_temp_dir_name() . '/' );
 
 defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_EMAIL' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_EMAIL', 'support@deep-web-solutions.com' );
 defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_URL' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_URL', 'https://support.deep-web-solutions.com' );
@@ -23,7 +24,7 @@ defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_URL' ) || define(
  *
  * @return  string
  */
-function dws_wp_framework_get_whitelabel_name(): string {
+function dws_wp_framework_get_whitelabel_name() {
 	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_NAME' );
 }
 
@@ -35,7 +36,7 @@ function dws_wp_framework_get_whitelabel_name(): string {
  *
  * @return  string
  */
-function dws_wp_framework_get_whitelabel_logo(): string {
+function dws_wp_framework_get_whitelabel_logo() {
 	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO' );
 }
 
@@ -47,7 +48,7 @@ function dws_wp_framework_get_whitelabel_logo(): string {
  *
  * @return  string
  */
-function dws_wp_framework_get_temp_dir_name(): string {
+function dws_wp_framework_get_temp_dir_name() {
 	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME' );
 }
 
@@ -59,7 +60,7 @@ function dws_wp_framework_get_temp_dir_name(): string {
  *
  * @return  string
  */
-function dws_wp_framework_get_temp_dir_path(): string {
+function dws_wp_framework_get_temp_dir_path() {
 	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_PATH' );
 }
 
@@ -71,7 +72,7 @@ function dws_wp_framework_get_temp_dir_path(): string {
  *
  * @return  string
  */
-function dws_wp_framework_get_temp_dir_url(): string {
+function dws_wp_framework_get_temp_dir_url() {
 	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_URL' );
 }
 
@@ -83,7 +84,7 @@ function dws_wp_framework_get_temp_dir_url(): string {
  *
  * @return  string
  */
-function dws_wp_framework_get_whitelabel_support_email(): string {
+function dws_wp_framework_get_whitelabel_support_email() {
 	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_EMAIL' );
 }
 
@@ -95,6 +96,6 @@ function dws_wp_framework_get_whitelabel_support_email(): string {
  *
  * @return  string
  */
-function dws_wp_framework_get_whitelabel_support_url(): string {
+function dws_wp_framework_get_whitelabel_support_url() {
 	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_URL' );
 }

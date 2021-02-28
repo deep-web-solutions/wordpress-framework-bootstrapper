@@ -22,8 +22,8 @@
     </rule>
 
     <!-- Minimum PHP and WP versions. -->
-    <config name="testVersion" value="7.4-"/>
-    <config name="minimum_supported_wp_version" value="5.4"/>
+    <config name="testVersion" value="5.3-"/>
+    <config name="minimum_supported_wp_version" value="5.5"/>
 
 	<!-- WordPress coding standards. -->
     <rule ref="WordPress">
