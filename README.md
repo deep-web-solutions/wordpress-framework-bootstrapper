@@ -31,6 +31,10 @@ for outputting an error message.
 The package is designed to be installed via Composer. It may work as a stand-alone but that is not officially supported.
 The package's name is `deep-web-solutions/wp-framework-bootstrapper`.
 
+If the package will be used outside a composer-based installation, e.g. inside a regular WP plugin, you should install 
+using the `--ignore-platform-reqs` option. If you don't do that, the package will only be able to perform checks for the
+WordPress version because composer will throw an error in case of an incompatible PHP version.
+
 
 ## Contributing 
 
