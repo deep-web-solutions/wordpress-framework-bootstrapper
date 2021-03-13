@@ -10,6 +10,7 @@
    
 1) Modify the `wp-config.php` file to use the appropriate database for acceptance and functional tests: https://wpbrowser.wptestkit.dev/tutorials/vvv-setup#using-the-tests-database-in-acceptance-and-functional-tests
 1) Copy the `_support/plugins/dws-wp-bootstrapper-test-plugin` folder to your instance's `wp-content/plugins` folder and install dependencies with `composer install --ignore-platform-reqs`.
+1) Set the starting database fixture: https://wpbrowser.wptestkit.dev/tutorials/vvv-setup#setting-up-the-starting-database-fixture
 1) Copy the `.dist.env` file to `wp-content/plugins/dws-wp-bootstrapper-test-plugin/.env.testing` and fill in your local environment variables.
 1) Copy the `codeception.dist.yml` file to `wp-content/plugins/dws-wp-bootstrapper-test-plugin/codeception.dist.yml` and adjust the `paths` accordingly.
 

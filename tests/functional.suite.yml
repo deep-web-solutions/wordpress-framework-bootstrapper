@@ -16,12 +16,12 @@ modules:
             dsn: '%TEST_SITE_DB_DSN%'
             user: '%TEST_SITE_DB_USER%'
             password: '%TEST_SITE_DB_PASSWORD%'
-            dump: 'tests/_data/dump.sql'
+            dump: '%FIXTURE_DUMP_PATH%'
             populate: true
             cleanup: true
             waitlock: 10
             url: '%TEST_SITE_WP_URL%'
-            urlReplacement: true
+            urlReplacement: false
             tablePrefix: '%TEST_SITE_TABLE_PREFIX%'
         WPBrowser:
             url: '%TEST_SITE_WP_URL%'
