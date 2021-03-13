@@ -48,6 +48,7 @@ cache:
   apt: false
 
 before_script:
+  - phpenv config-rm xdebug.ini
   - composer self-update
   - composer install --prefer-source --no-interaction --ignore-platform-reqs
 
