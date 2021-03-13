@@ -36,14 +36,14 @@ module.exports = function( grunt ) {
 							// include the default value of the constant DWS_WP_FRAMEWORK_WHITELABEL_NAME
 							pot.translations['']['DWS_WP_FRAMEWORK_WHITELABEL_NAME'] = {
 								msgid: 'Deep Web Solutions',
-								comments: { reference: 'bootstrap-whitelabel.php:8' },
+								comments: { reference: 'bootstrap-whitelabel.php:19' },
 								msgstr: [ '' ]
 							};
 
 							// include the default value of the constant DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME
 							pot.translations['']['DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME'] = {
 								msgid: 'Deep Web Solutions: Framework Bootstrapper',
-								comments: { reference: 'bootstrap.php:38' },
+								comments: { reference: 'bootstrap.php:41' },
 								msgstr: [ '' ]
 							};
 

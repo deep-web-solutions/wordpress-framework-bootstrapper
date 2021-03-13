@@ -1,12 +1,9 @@
 <?php
 
-namespace DeepWebSolutions\Framework\Bootstrapper\Tests\Functional;
-
-
 class Example2Test extends \Codeception\TestCase\WPTestCase
 {
     /**
-     * @var \FunctionalTester
+     * @var \WpunitTester
      */
     protected $tester;
     
@@ -29,10 +26,8 @@ class Example2Test extends \Codeception\TestCase\WPTestCase
     // Tests
     public function test_it_works()
     {
-	    \DeepWebSolutions\Framework\dws_wp_framework_get_bootstrapper_min_php();
-
-        $post = static::factory()->post->create_and_get();
-        
-        $this->assertInstanceOf(\WP_Post::class, $post);
+    	$this->assertEquals( true, isset( get_defined_constants()['DeepWebSolutions\Framework\DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME'] ) );
+    	$this->assertEquals( true, function_exists( 'DeepWebSolutions\Framework\dws_wp_framework_get_bootstrapper_name' ) );
+	    $this->assertEquals( 'test', \DeepWebSolutions\Framework\dws_wp_framework_get_bootstrapper_name() );
     }
 }

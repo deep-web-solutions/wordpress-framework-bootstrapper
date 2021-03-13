@@ -3,7 +3,7 @@
  * The DWS WordPress Framework Bootstrapper bootstrap file.
  *
  * @since               1.0.0
- * @version             1.0.0
+ * @version             1.1.0
  * @package             DeepWebSolutions\WP-Framework\Bootstrapper
  * @author              Deep Web Solutions GmbH
  * @copyright           2021 Deep Web Solutions GmbH
@@ -12,7 +12,7 @@
  * @wordpress-plugin
  * Plugin Name:         DWS WordPress Framework Bootstrapper
  * Description:         A set of related functions that help bootstrap and version the other DWS WordPress Framework components.
- * Version:             1.0.0
+ * Version:             1.1.0
  * Requires at least:   5.5
  * Requires PHP:        5.3
  * Author:              Deep Web Solutions GmbH
@@ -33,116 +33,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 // The conditional check makes the whole thing compatible with Composer-based WP management.
 file_exists( __DIR__ . '/vendor/autoload.php' ) && require_once __DIR__ . '/vendor/autoload.php';
 
-// Load whitelabel settings
+// Load whitelabel settings and module-specific functions.
 require_once 'bootstrap-whitelabel.php';
+require_once 'bootstrap-functions.php';
 
 // Define bootstrapper constants.
 define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME', dws_wp_framework_get_whitelabel_name() . ': Framework Bootstrapper' );
-define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_VERSION', '1.0.0' );
-
-/**
- * Returns the whitelabel name of the framework's bootstrapper within the context of the current plugin.
- *
- * @since   1.0.0
- * @version 1.0.0
- *
- * @return  string
- */
-function dws_wp_framework_get_bootstrapper_name() {
-	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME' );
-}
-
-/**
- * Returns the version of the framework's bootstrapper within the context of the current plugin.
- *
- * @since   1.0.0
- * @version 1.0.0
- *
- * @return  string
- */
-function dws_wp_framework_get_bootstrapper_version() {
-	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_VERSION' );
-}
+define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_VERSION', '1.1.0' );
 
 // Define minimum environment requirements.
 define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_PHP', '7.4' );
 define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_WP', '5.5' );
-
-/**
- * Returns the minimum PHP version required to run the Bootstrapper of the framework's bootstrapper within the context of the current plugin.
- *
- * @since   1.0.0
- * @version 1.0.0
- *
- * @return  string
- */
-function dws_wp_framework_get_bootstrapper_min_php() {
-	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_PHP' );
-}
-
-/**
- * Returns the minimum WP version required to run the Bootstrapper of the framework's bootstrapper within the context of the current plugin.
- *
- * @since   1.0.0
- * @version 1.0.0
- *
- * @return  string
- */
-function dws_wp_framework_get_bootstrapper_min_wp() {
-	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_WP' );
-}
-
-/**
- * Checks if the system requirements are met.
- *
- * @since   1.0.0
- * @version 1.0.0
- *
- * @param   string  $min_php_version    The minimum PHP version required to run.
- * @param   string  $min_wp_version     The minimum WP version required to run.
- *
- * @return  bool
- */
-function dws_wp_framework_check_php_wp_requirements_met( $min_php_version, $min_wp_version ) {
-	if ( version_compare( PHP_VERSION, $min_php_version, '<' ) ) {
-		return false;
-	} elseif ( version_compare( $GLOBALS['wp_version'], $min_wp_version, '<' ) ) {
-		return false;
-	}
-
-	return true;
-}
-
-/**
- * Prints an error that the system requirements weren't met.
- *
- * @SuppressWarnings(PHPMD.UnusedFormalParameter)
- *
- * @since   1.0.0
- * @version 1.0.0
- *
- * @param   string  $component_name     The name of the component that wants to record the error.
- * @param   string  $component_version  The version of the component that wants to record the error.
- * @param   string  $min_php_version    The minimum PHP version required to run.
- * @param   string  $min_wp_version     The minimum WP version required to run.
- * @param   array   $args               Associative array of other variables that should be made available in the template's context.
- */
-function dws_wp_framework_output_requirements_error( $component_name, $component_version, $min_php_version, $min_wp_version, array $args = array() ) {
-	if ( did_action( 'admin_notices' ) ) {
-		_doing_it_wrong(
-			__FUNCTION__,
-			'The requirements error message cannot be outputted after the admin_notices action has been already executed.',
-			'1.0.0'
-		);
-	} else {
-		add_action(
-			'admin_notices',
-			function() use ( $component_name, $component_version, $min_php_version, $min_wp_version, $args ) {
-				require_once __DIR__ . '/src/templates/requirements-error.php';
-			}
-		);
-	}
-}
 
 /**
  * Registers the language files for the bootstrapper's text domain.

@@ -18,5 +18,6 @@ modules:
             domain: "%TEST_SITE_WP_DOMAIN%"
             adminEmail: "%TEST_SITE_ADMIN_EMAIL%"
             title: "your_test_site_title"
+            isolatedInstall: false
             plugins: ['dws-wp-bootstrapper-test-plugin/bootstrap.php']
             activatePlugins: ['dws-wp-bootstrapper-test-plugin/bootstrap.php']

@@ -1,10 +1,21 @@
 <?php
+/**
+ * Defines whitelabel-ing constants and getters.
+ *
+ * @since   1.0.0
+ * @version 1.0.0
+ * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.com>
+ * @package DeepWebSolutions\WP-Framework\Bootstrapper
+ *
+ * @noinspection PhpMissingReturnTypeInspection
+ */
 
 namespace DeepWebSolutions\Framework;
 
+use function wp_get_upload_dir;
+
 defined( 'ABSPATH' ) || exit;
 
-// Make sure that the whitelabel options are defined. If not, set the defaults.
 defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_NAME' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_NAME', 'Deep Web Solutions' );
 defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO' ) || define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO', __DIR__ . '/src/assets/dws_logo.svg' );
 
