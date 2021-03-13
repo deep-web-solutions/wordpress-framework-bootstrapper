@@ -1,0 +1,32 @@
+{
+  "name": "deep-web-solutions/wp-framework-bootstrapper-test-plugin",
+  "type": "library",
+
+  "description": "A set of related functions that help bootstrap and version the other DWS WordPress Framework packages.",
+  "keywords": ["wordpress", "plugin", "Deep Web Solutions", "bootstrapper", "test"],
+  "homepage": "https://www.deep-web-solutions.com",
+  "license": "GPL-3.0-or-later",
+
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/deep-web-solutions/wordpress-framework-bootstrapper"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "deep-web-solutions/wp-framework-bootstrapper": "master@dev"
+  },
+  "require-dev": {
+    "lucatume/wp-browser": ">=3.0",
+    "codeception/lib-innerbrowser": "^1.0",
+    "codeception/module-asserts": "^1.1",
+    "codeception/module-cli": "^1.0",
+    "codeception/module-db": "^1.0",
+    "codeception/module-filesystem": "^1.0",
+    "codeception/module-phpbrowser": "^1.0",
+    "codeception/module-rest": "^1.2",
+    "codeception/module-webdriver": "^1.0",
+    "codeception/util-universalframework": "^1.0"
+  }
+}

@@ -14,7 +14,7 @@
  * Description:         A set of related functions that help bootstrap and version the other DWS WordPress Framework components.
  * Version:             1.0.0
  * Requires at least:   5.5
- * Requires PHP:        7.4
+ * Requires PHP:        5.3
  * Author:              Deep Web Solutions GmbH
  * Author URI:          https://www.deep-web-solutions.com
  * License:             GPL-3.0+

@@ -2,7 +2,7 @@
   "name": "deep-web-solutions/wp-framework-bootstrapper",
   "type": "library",
 
-  "description": "A set of related functions that help bootstrap and version the other DWS WordPress Framework components.",
+  "description": "A set of related functions that help bootstrap and version the other DWS WordPress Framework packages.",
   "keywords": ["wordpress", "framework", "Deep Web Solutions", "bootstrapper"],
   "homepage": "https://www.deep-web-solutions.com",
   "license": "GPL-3.0-or-later",
