@@ -18,11 +18,3 @@ extensions:
         - Codeception\Command\GenerateWPXMLRPC
 params:
     - .env.testing
-coverage:
-    enabled: true
-    include:
-        - bootstrap.php
-        - bootstrap-whitelabel.php
-        - src/*
-    low_limit: 30
-    high_limit: 90

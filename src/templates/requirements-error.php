@@ -28,7 +28,7 @@ defined( 'ABSPATH' ) || exit;
 		echo wp_kses(
 			sprintf(
 				/* translators: 1. Component name, 2. Component version */
-				__( '<strong>%1$s (%2$s)</strong> error: Your environment doesn\'t meet all of the system requirements listed below:', 'dws-wp-framework-bootstrapper' ),
+				__( '<strong>%1$s (%2$s)</strong> has encountered an error. Your environment doesn\'t meet all of the system requirements listed below:', 'dws-wp-framework-bootstrapper' ),
 				$component_name,
 				$component_version
 			),

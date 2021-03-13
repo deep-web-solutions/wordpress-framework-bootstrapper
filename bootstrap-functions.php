@@ -64,6 +64,18 @@ function dws_wp_framework_get_bootstrapper_min_wp() {
 }
 
 /**
+ * Returns whether the bootstrapper has managed to initialize successfully or not in the current environment.
+ *
+ * @since   1.0.0
+ * @version 1.0.0
+ *
+ * @return  bool
+ */
+function dws_wp_framework_get_bootstrapper_init_status() {
+	return constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_INIT' );
+}
+
+/**
  * Checks if the system requirements are met.
  *
  * @since   1.0.0
