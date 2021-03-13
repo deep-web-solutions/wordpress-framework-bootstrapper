@@ -67,5 +67,9 @@ Hopefully yes, probably not. If you found any problems, please raise an issue on
 
 ## Changelog 
 
+### 1.1.0 (March 14th, 2021)
+* Added automated testing via Codeception
+* Improved Travis-CI pipeline
+
 ### 1.0.0 (February 28th, 2021) 
 * First official release.

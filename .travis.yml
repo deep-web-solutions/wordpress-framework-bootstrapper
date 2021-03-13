@@ -1,9 +1,11 @@
-language: php
-
 notifications:
   email:
     on_success: never
     on_failure: change
+
+language: php
+services:
+  - mysql
 
 matrix:
   include:
@@ -12,7 +14,7 @@ matrix:
     - php: 8.0
       env: WP_VERSION=latest
     - php: 7.4
-      env: WP_VERSION=latest
+      env: WP_VERSION=latest SNIFF=1
     - php: 7.4 # minimum requirements
       env: WP_VERSION=5.5 # minimum requirements
     - php: 7.4
@@ -21,18 +23,30 @@ matrix:
       env: WP_VERSION=5.5 # minimum requirements
     - php: 7.3 # just below the min requirements
       env: WP_VERSION=5.4 # just below the min requirements
+    - php: 7.2
+      env: WP_VERSION=5.4
+    - php: 7.1
+      env: WP_VERSION=5.4
+    - php: 7.0
+      env: WP_VERSION=5.4
+    - php: 5.6
+      dist: precise
+      env: WP_VERSION=5.4
+    - php: 5.5
+      dist: precise
+      env: WP_VERSION=4.9
+    - php: 5.4
+      dist: precise
+      env: WP_VERSION=4.9
+    - php: 5.3 # minimum version that the bootstrap.php file should run on
+      dist: precise
+      env: WP_VERSION=4.9
   allow_failures:
     - env: WP_VERSION=latest
     - env: WP_VERSION=nightly
 
-env:
-  global:
-    - SNIFF=1
-
 cache:
   apt: false
-  directories:
-    - "$HOME/.npm" # Keep the npm cache around to speed up installs.
 
 before_script:
   - composer self-update
