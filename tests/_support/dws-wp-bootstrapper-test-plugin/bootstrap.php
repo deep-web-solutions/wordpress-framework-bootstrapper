@@ -11,6 +11,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:         DWS WordPress Framework Bootstrapper Test Plugin
+ * Description:         A WP plugin used to run automated tests against the DWS WP Framework Bootstrapper package.
  * Version:             1.0.0
  * Requires PHP:        5.3
  * Author:              Deep Web Solutions GmbH
