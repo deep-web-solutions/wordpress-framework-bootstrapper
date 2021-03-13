@@ -47,5 +47,11 @@
     "files": [
       "bootstrap.php"
     ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "DeepWebSolutions\\Framework\\Bootstrapper\\Tests\\Acceptance\\": "tests/acceptance",
+      "DeepWebSolutions\\Framework\\Bootstrapper\\Tests\\Functional\\": "tests/functional"
+    }
   }
 }
