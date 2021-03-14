@@ -4,14 +4,6 @@ namespace DeepWebSolutions\Framework\Bootstrapper\Tests\Integration;
 
 use Codeception\TestCase\WPTestCase;
 use WpunitTester;
-use function DeepWebSolutions\Framework\dws_wp_framework_get_bootstrapper_name;
-use function DeepWebSolutions\Framework\dws_wp_framework_get_whitelabel_name;
-use function DeepWebSolutions\Framework\dws_wp_framework_get_whitelabel_logo_path;
-use function DeepWebSolutions\Framework\dws_wp_framework_get_whitelabel_support_email;
-use function DeepWebSolutions\Framework\dws_wp_framework_get_whitelabel_support_url;
-use function DeepWebSolutions\Framework\dws_wp_framework_get_temp_dir_name;
-use function DeepWebSolutions\Framework\dws_wp_framework_get_temp_dir_path;
-use function DeepWebSolutions\Framework\dws_wp_framework_get_temp_dir_url;
 
 /**
  * Integration test for whitelabel functionality.
@@ -46,9 +38,9 @@ class WhitelabelTest extends WPTestCase {
 	 * @version 1.0.0
 	 */
 	public function test_name_and_logo() {
-		$this->assertEquals( 'Whitelabel Name', dws_wp_framework_get_whitelabel_name() );
-		$this->assertEquals( 'Whitelabel Name: Framework Bootstrapper', dws_wp_framework_get_bootstrapper_name() );
-		$this->assertEquals( 'Whitelabel Logo Path', dws_wp_framework_get_whitelabel_logo_path() );
+		$this->assertEquals( 'Whitelabel Name', \DeepWebSolutions\Framework\dws_wp_framework_get_whitelabel_name() );
+		$this->assertEquals( 'Whitelabel Name: Framework Bootstrapper', \DeepWebSolutions\Framework\dws_wp_framework_get_bootstrapper_name() );
+		$this->assertEquals( 'Whitelabel Logo Path', \DeepWebSolutions\Framework\dws_wp_framework_get_whitelabel_logo_path() );
 	}
 
 	/**
@@ -58,8 +50,8 @@ class WhitelabelTest extends WPTestCase {
 	 * @version 1.0.0
 	 */
 	public function test_support() {
-		$this->assertEquals( 'whitelabel-support@whitelabel-company.com', dws_wp_framework_get_whitelabel_support_email() );
-		$this->assertEquals( 'whitelabel-company.com', dws_wp_framework_get_whitelabel_support_url() );
+		$this->assertEquals( 'whitelabel-support@whitelabel-company.com', \DeepWebSolutions\Framework\dws_wp_framework_get_whitelabel_support_email() );
+		$this->assertEquals( 'whitelabel-company.com', \DeepWebSolutions\Framework\dws_wp_framework_get_whitelabel_support_url() );
 	}
 
 	/**
@@ -69,9 +61,9 @@ class WhitelabelTest extends WPTestCase {
 	 * @version 1.0.0
 	 */
 	public function test_temp_directory() {
-		$this->assertEquals( 'temp-dir-name', dws_wp_framework_get_temp_dir_name() );
-		$this->assertEquals( 'temp-dir-path/temp-dir-name', dws_wp_framework_get_temp_dir_path() );
-		$this->assertEquals( 'temp-dir-url/temp-dir-name', dws_wp_framework_get_temp_dir_url() );
+		$this->assertEquals( 'temp-dir-name', \DeepWebSolutions\Framework\dws_wp_framework_get_temp_dir_name() );
+		$this->assertEquals( 'temp-dir-path/temp-dir-name', \DeepWebSolutions\Framework\dws_wp_framework_get_temp_dir_path() );
+		$this->assertEquals( 'temp-dir-url/temp-dir-name', \DeepWebSolutions\Framework\dws_wp_framework_get_temp_dir_url() );
 	}
 
 	// endregion

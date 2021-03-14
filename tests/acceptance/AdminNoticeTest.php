@@ -4,7 +4,6 @@ namespace DeepWebSolutions\Framework\Bootstrapper\Tests\Acceptance;
 
 use AcceptanceTester;
 use Codeception\TestCase\WPTestCase;
-use function DeepWebSolutions\Framework\dws_wp_framework_get_bootstrapper_init_status;
 
 /**
  * Acceptance test for ensuring the admin notice is shown every time it should be.
@@ -42,7 +41,7 @@ class AdminNoticeTest extends WPTestCase {
 		$this->tester->loginAsAdmin();
 		$this->tester->amOnAdminPage( '/' );
 
-		if ( true === dws_wp_framework_get_bootstrapper_init_status() ) {
+		if ( true === \DeepWebSolutions\Framework\dws_wp_framework_get_bootstrapper_init_status() ) {
 			$this->tester->dontSee( 'Your environment doesn\'t meet all of the system requirements listed below' );
 		} else {
 			$this->tester->see( 'Your environment doesn\'t meet all of the system requirements listed below', '.dws-requirements-error' );
