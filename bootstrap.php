@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Start by autoloading dependencies and defining a few functions for running the bootstrapper.
 // The conditional check makes the whole thing compatible with Composer-based WP management.
-file_exists( __DIR__ . '/vendor/autoload.php' ) && require_once __DIR__ . '/vendor/autoload.php';
+is_file( __DIR__ . '/vendor/autoload.php' ) && require_once __DIR__ . '/vendor/autoload.php';
 
 // Load whitelabel settings and module-specific functions.
 require_once 'bootstrap-whitelabel.php';
