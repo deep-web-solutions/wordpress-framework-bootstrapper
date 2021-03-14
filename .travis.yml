@@ -38,19 +38,19 @@ matrix:
     - php: 8.0
       env: WP_VERSION=nightly
     - php: 8.0
-      env: WP_VERSION=latest SNIFF=1
+      env: WP_VERSION=latest SNIFF=1 TEST=1
     - php: 7.4
-      env: WP_VERSION=latest SNIFF=1
+      env: WP_VERSION=latest SNIFF=1 TEST=1
     - php: 7.4 # minimum requirements
-      env: WP_VERSION=5.5 SNIFF=1 # minimum requirements
+      env: WP_VERSION=5.5 SNIFF=1 TEST=1 # minimum requirements
     - php: 7.4
-      env: WP_VERSION=5.4 # just below the min requirements
+      env: WP_VERSION=5.4 TEST=1 # just below the min requirements
     - php: 7.3 # just below the min requirements
-      env: WP_VERSION=5.5 # minimum requirements
+      env: WP_VERSION=5.5 TEST=1 # minimum requirements
     - php: 7.3 # just below the min requirements
-      env: WP_VERSION=5.4 # just below the min requirements
+      env: WP_VERSION=5.4 TEST=1 # just below the min requirements
     - php: 7.2
-      env: WP_VERSION=5.4
+      env: WP_VERSION=5.4 TEST=1
     - php: 7.1
       env: WP_VERSION=5.4
     - php: 7.0
@@ -61,7 +61,10 @@ matrix:
     - php: 5.5
       dist: precise
       env: WP_VERSION=4.9
-    - php: 5.4 # minimum version that the bootstrap.php file should run on; we can't test 5.3 because Codeception requires traits
+    - php: 5.4
+      dist: precise
+      env: WP_VERSION=4.9
+    - php: 5.4 # minimum version that the bootstrap.php file should run on;
       dist: precise
       env: WP_VERSION=4.9
   allow_failures:
@@ -121,5 +124,5 @@ script:
   # Run PHPCS.
   - if [[ "$SNIFF" == "1" ]]; then vendor/bin/phpcs $TRAVIS_BUILD_DIR ; fi
   # Run tests.
-  - codecept run wpunit --steps --debug
-  - codecept run acceptance --steps --debug
+  - if [[ "$TEST" == "1" ]]; then codecept run wpunit --steps --debug ; fi
+  - if [[ "$TEST" == "1" ]]; then codecept run acceptance --steps --debug ; fi
