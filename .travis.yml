@@ -24,7 +24,7 @@ env:
     - TEST_SITE_WP_ADMIN_PATH=/wp-admin
     - TEST_SITE_WP_URL=http://localhost:8888
     - TEST_SITE_WP_DOMAIN=localhost:8888
-    - TEST_SITE_ADMIN_EMAIL=admin@localhost
+    - TEST_SITE_ADMIN_EMAIL=admin@localhost.test
 
     # For integration tests
     - TEST_DB_NAME=test_integration
