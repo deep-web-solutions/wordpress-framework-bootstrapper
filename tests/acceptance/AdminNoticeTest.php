@@ -42,8 +42,10 @@ class AdminNoticeTest extends WPTestCase {
 		$this->tester->amOnAdminPage( '/' );
 
 		if ( true === \DeepWebSolutions\Framework\dws_wp_framework_get_bootstrapper_init_status() ) {
+			codecept_debug( 'Bootstrapper has been initialized ... checking that the message is NOT present' );
 			$this->tester->dontSee( 'Your environment doesn\'t meet all of the system requirements listed below' );
 		} else {
+			codecept_debug( 'Bootstrapper has NOT been initialized ... checking that the message IS present' );
 			$this->tester->see( 'Your environment doesn\'t meet all of the system requirements listed below', '.dws-requirements-error' );
 		}
 	}
