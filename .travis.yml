@@ -86,6 +86,7 @@ before_install:
   - export PATH=vendor/bin:$PATH
 
 install:
+  - phpenv config-rm xdebug.ini
   - composer self-update
   - composer install --prefer-source --no-interaction --ignore-platform-reqs # Ignore platform requirements to install on lower PHP version and check that execution indeed fails.
   # Install and configure WordPress.
@@ -111,7 +112,6 @@ install:
   - cd $TRAVIS_BUILD_DIR
 
 before_script:
-  - phpenv config-rm xdebug.ini
   - php -S "$TEST_SITE_WP_DOMAIN" -t "$WP_ROOT_FOLDER" >/dev/null 2>&1 &
   - phantomjs --webdriver=4444 >/dev/null 2>&1 &
 
