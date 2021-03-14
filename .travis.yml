@@ -118,5 +118,5 @@ script:
   # Run PHPCS.
   - if [[ "$SNIFF" == "1" ]]; then vendor/bin/phpcs $TRAVIS_BUILD_DIR ; fi
   # Run tests.
-  - codecept run wpunit --steps
-  - codecept run acceptance --steps
+  - codecept run wpunit --steps --debug
+  - codecept run acceptance --steps --debug
