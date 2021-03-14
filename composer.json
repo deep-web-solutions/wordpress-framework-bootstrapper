@@ -53,5 +53,12 @@
       "DeepWebSolutions\\Framework\\Bootstrapper\\Tests\\Acceptance\\": "tests/acceptance",
       "DeepWebSolutions\\Framework\\Bootstrapper\\Tests\\Integration\\": "tests/wpunit"
     }
+  },
+
+  "scripts": {
+    "test:clean": "@php ./vendor/bin/codecept clean",
+    "test:acceptance": "@php ./vendor/bin/codecept run acceptance",
+    "test:integration": "@php ./vendor/bin/codecept run wpunit",
+    "test:coverage": "@php ./vendor/bin/codecept run wpunit --coverage --coverage-xml --coverage-html"
   }
 }
