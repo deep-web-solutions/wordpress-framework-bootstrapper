@@ -25,7 +25,7 @@ namespace DeepWebSolutions\Plugins;
 defined( 'ABSPATH' ) || exit;
 
 // Register autoloader for testing dependencies.
-file_exists( __DIR__ . '/vendor/autoload.php' ) && require_once __DIR__ . '/vendor/autoload.php';
+is_file( __DIR__ . '/vendor/autoload.php' ) && require_once __DIR__ . '/vendor/autoload.php';
 if ( ! defined( 'DeepWebSolutions\Framework\DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME' ) ) {
 	define( 'DeepWebSolutions\Framework\DWS_WP_FRAMEWORK_WHITELABEL_NAME', 'Whitelabel Name' );
 	define( 'DeepWebSolutions\Framework\DWS_WP_FRAMEWORK_WHITELABEL_LOGO_PATH', 'Whitelabel Logo Path' );

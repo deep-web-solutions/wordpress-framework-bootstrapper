@@ -1,6 +1,6 @@
 {
   "name": "deep-web-solutions/wp-framework-bootstrapper-test-plugin",
-  "type": "library",
+  "type": "wordpress-plugin",
 
   "description": "A WP plugin used to run automated tests against the DWS WP Framework Bootstrapper package.",
   "keywords": ["wordpress", "plugin", "Deep Web Solutions", "bootstrapper", "test"],
@@ -14,7 +14,6 @@
     }
   ],
   "require": {
-    "php": ">=7.4",
     "deep-web-solutions/wp-framework-bootstrapper": "master@dev"
   }
 }
