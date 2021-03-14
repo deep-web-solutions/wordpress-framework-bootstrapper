@@ -101,10 +101,13 @@ install:
   - rm -rf $WP_ROOT_FOLDER/wp-content/plugins/dws-wp-bootstrapper-test-plugin/vendor/deep-web-solutions/wp-framework-bootstrapper/*
   - cp -r $TRAVIS_BUILD_DIR/* $WP_ROOT_FOLDER/wp-content/plugins/dws-wp-bootstrapper-test-plugin/vendor/deep-web-solutions/wp-framework-bootstrapper/
   - rm -fv $WP_ROOT_FOLDER/wp-content/plugins/dws-wp-bootstrapper-test-plugin/vendor/deep-web-solutions/wp-framework-bootstrapper/vendor/autoload.php
-  # Make sure the WP directory is writeable.
-  - chmod -R 777 $WP_ROOT_FOLDER
+  # Activate the test plugin
+  - wp plugin activate dws-wp-bootstrapper-test-plugin
+  - wp plugin list --status=active
   # Generate the db export.
   - wp db export $TRAVIS_BUILD_DIR/tests/_data/dump.sql
+  # Make sure the WP directory is writeable.
+  - chmod -R 777 $WP_ROOT_FOLDER
   - cd $TRAVIS_BUILD_DIR
 
 before_script:
