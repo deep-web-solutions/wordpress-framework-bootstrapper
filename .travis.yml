@@ -34,6 +34,7 @@ env:
     - TEST_TABLE_PREFIX=wp_
 
 matrix:
+  fast_finish: true
   include:
     - php: 8.0
       env: WP_VERSION=nightly
