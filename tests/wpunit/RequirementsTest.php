@@ -80,11 +80,11 @@ class RequirementsTest extends WPTestCase {
 	 * @version 1.0.0
 	 */
 	public function test_past_php_environment() {
-		$php_version  = PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION . '.' . ( PHP_RELEASE_VERSION - 1 );
+		$php_version  = PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION . '.' . max( 0, PHP_RELEASE_VERSION - 1 );
 		$check_result = \DeepWebSolutions\Framework\dws_wp_framework_check_php_wp_requirements_met( $php_version, $GLOBALS['wp_version'] );
 		$this->assertEquals( true, $check_result );
 
-		$php_version  = PHP_MAJOR_VERSION . '.' . ( PHP_MINOR_VERSION - 1 ) . '.' . PHP_RELEASE_VERSION;
+		$php_version  = PHP_MAJOR_VERSION . '.' . max(0, PHP_MINOR_VERSION - 1 ) . '.' . PHP_RELEASE_VERSION;
 		$check_result = \DeepWebSolutions\Framework\dws_wp_framework_check_php_wp_requirements_met( $php_version, $GLOBALS['wp_version'] );
 		$this->assertEquals( true, $check_result );
 
