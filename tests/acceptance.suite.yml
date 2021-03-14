@@ -37,7 +37,7 @@ modules:
             cleanup: true
             waitlock: 10
             url: '%TEST_SITE_WP_URL%'
-            urlReplacement: false #replace the hardcoded dump URL with the one above
+            urlReplacement: true #replace the hardcoded dump URL with the one above
             tablePrefix: '%TEST_SITE_TABLE_PREFIX%'
         WPBrowser:
             url: '%TEST_SITE_WP_URL%'

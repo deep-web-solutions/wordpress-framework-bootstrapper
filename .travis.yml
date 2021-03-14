@@ -13,7 +13,7 @@ env:
     - WP_ROOT_FOLDER=/tmp/wordpress
 
     # For acceptance and functional tests
-    - TEST_SITE_DB_DSN=mysql:host=127.0.0.1;dbname=test_acceptance
+    - TEST_SITE_DB_DSN="mysql:host=127.0.0.1;dbname=test_acceptance"
     - TEST_SITE_DB_HOST=localhost
     - TEST_SITE_DB_NAME=test_acceptance
     - TEST_SITE_DB_USER=root
