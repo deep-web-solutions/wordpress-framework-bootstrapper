@@ -1,2 +1,2 @@
 params:
-    .env.testing
+    - .env.testing

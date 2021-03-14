@@ -12,6 +12,7 @@
 1) Copy the `_support/dws-wp-bootstrapper-test-plugin` folder to your instance's `wp-content/plugins` folder and install dependencies with `composer install --ignore-platform-reqs`.
 1) Set the starting database fixture: https://wpbrowser.wptestkit.dev/tutorials/vvv-setup#setting-up-the-starting-database-fixture
 1) Copy the `.dist.env` file to `.env.testing` and fill in your local environment variables.
+20 Copy the `codeception.local.yml` file to `codeception.yml` and adjust, if needed.
 
 
 ## Running Tests
