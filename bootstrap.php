@@ -33,9 +33,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 // The conditional check makes the whole thing compatible with Composer-based WP management.
 is_file( __DIR__ . '/vendor/autoload.php' ) && require_once __DIR__ . '/vendor/autoload.php';
 
-// Load whitelabel settings and module-specific functions.
-require_once 'bootstrap-whitelabel.php';
-require_once 'bootstrap-functions.php';
+// Load whitelabel settings and module-specific bootstrapping functions.
+require_once __DIR__ . '/bootstrap-whitelabel.php';
+require_once __DIR__ . '/bootstrap-functions.php';
 
 // Define bootstrapper constants.
 define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME', dws_wp_framework_get_whitelabel_name() . ': Framework Bootstrapper' );
