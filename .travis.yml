@@ -61,10 +61,7 @@ matrix:
     - php: 5.5
       dist: precise
       env: WP_VERSION=4.9
-    - php: 5.4
-      dist: precise
-      env: WP_VERSION=4.9
-    - php: 5.3 # minimum version that the bootstrap.php file should run on;
+    - php: 5.4 # minimum version that the bootstrap.php file should run on; we can't test 5.3 because wp-cli doesn't support it;
       dist: precise
       env: WP_VERSION=4.9
   allow_failures:
