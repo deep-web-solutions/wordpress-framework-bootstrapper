@@ -2,14 +2,14 @@
 
 **Contributors:** Antonius Hegyes, Deep Web Solutions GmbH  
 **Requires at least:** 5.5  
-**Tested up to:** 5.6  
+**Tested up to:** 5.7  
 **Requires PHP:** 7.4  
-**Stable tag:** 1.1.0  
+**Stable tag:** 1.1.1  
 **License:** GPLv3 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-3.0.html  
 
 
-## Description 
+## Description
 
 [![Build Status](https://travis-ci.com/deep-web-solutions/wordpress-framework-bootstrapper.svg?branch=master)](https://travis-ci.com/deep-web-solutions/wordpress-framework-bootstrapper)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b9f94cc3e336c49975b2/maintainability)](https://codeclimate.com/github/deep-web-solutions/wordpress-framework-bootstrapper/maintainability)
@@ -36,12 +36,12 @@ using the `--ignore-platform-reqs` option. If you don't do that, the package wil
 WordPress version because composer will throw an error in case of an incompatible PHP version.
 
 
-## Contributing 
+## Contributing
 
 Contributions both in the form of bug-reports and pull requests are more than welcome!
 
 
-## Frequently Asked Questions 
+## Frequently Asked Questions
 
 - What is the purpose of this package?
 
@@ -69,12 +69,16 @@ If you're using older versions of either one, you should really consider upgradi
 Hopefully yes, probably not. If you found any problems, please raise an issue on Github!
 
 
-## Changelog 
+## Changelog
+
+### 1.1.1 (March 15th, 2021)
+* Prefixed all functions from the global namespace to clear ambiguity.
+* Fixed some typos in the documentation.
 
 ### 1.1.0 (March 14th, 2021)
 * Moved module-specific functions to their own non-autoloaded file.
 * Added automated testing via Codeception
 * Improved Travis-CI pipeline
 
-### 1.0.0 (February 28th, 2021) 
+### 1.0.0 (February 28th, 2021)
 * First official release.
