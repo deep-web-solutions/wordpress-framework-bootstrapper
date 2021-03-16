@@ -71,7 +71,7 @@ Hopefully yes, probably not. If you found any problems, please raise an issue on
 
 ## Changelog
 
-=== 1.1.2 (March 16th, 2021)
+### 1.1.2 (March 16th, 2021)
 * Added `declare( strict_types = 1 )` to test files.
 * Fixed minor tweaks and typos in tests.
 
