@@ -8,7 +8,6 @@
 actor: AcceptanceTester
 modules:
     enabled:
-        - WPLoader
         - WPDb
         - WPBrowser
         - \Helper\Acceptance
