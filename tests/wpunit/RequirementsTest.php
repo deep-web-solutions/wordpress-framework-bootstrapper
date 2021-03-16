@@ -1,4 +1,4 @@
-<?php
+<?php declare( strict_types = 1 );
 
 namespace DeepWebSolutions\Framework\Bootstrapper\Tests\Integration;
 
@@ -8,8 +8,8 @@ use WpunitTester;
 /**
  * Integration test for ensuring the environment checker works as expected.
  *
- * @since   1.0.0
- * @version 1.0.0
+ * @since   1.1.0
+ * @version 1.1.2
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.com>
  * @package DeepWebSolutions\WP-Framework\Bootstrapper\Tests\Integration
  */
@@ -19,8 +19,8 @@ class RequirementsTest extends WPTestCase {
 	/**
 	 * Instance of the default WP actor.
 	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
+	 * @since   1.1.0
+	 * @version 1.1.0
 	 *
 	 * @access  protected
 	 * @var     WpunitTester
@@ -34,8 +34,8 @@ class RequirementsTest extends WPTestCase {
 	/**
 	 * Tests that the global PHP constants behave as expected. By definition, this should never fail.
 	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
+	 * @since   1.1.0
+	 * @version 1.1.0
 	 */
 	public function test_php_constant() {
 		$php_version = PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION . '.' . PHP_RELEASE_VERSION . PHP_EXTRA_VERSION;
@@ -45,8 +45,8 @@ class RequirementsTest extends WPTestCase {
 	/**
 	 * Test for the lower-bound of the checker.
 	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
+	 * @since   1.1.0
+	 * @version 1.1.0
 	 */
 	public function test_current_environment() {
 		$check_result = \DeepWebSolutions\Framework\dws_wp_framework_check_php_wp_requirements_met( PHP_VERSION, $GLOBALS['wp_version'] );
@@ -56,8 +56,8 @@ class RequirementsTest extends WPTestCase {
 	/**
 	 * Test for the next releases of PHP.
 	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
+	 * @since   1.1.0
+	 * @version 1.1.0
 	 */
 	public function test_future_php_environment() {
 		$php_version  = PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION . '.' . ( PHP_RELEASE_VERSION + 1 );
@@ -76,8 +76,8 @@ class RequirementsTest extends WPTestCase {
 	/**
 	 * Test for the past releases of PHP.
 	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
+	 * @since   1.1.0
+	 * @version 1.1.0
 	 */
 	public function test_past_php_environment() {
 		$php_version  = PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION . '.' . max( 0, PHP_RELEASE_VERSION - 1 );
@@ -96,8 +96,8 @@ class RequirementsTest extends WPTestCase {
 	/**
 	 * Ensures both that the getters don't throw an error and also that the init status is set properly.
 	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
+	 * @since   1.1.0
+	 * @version 1.1.0
 	 */
 	public function test_plugin_requirements() {
 		$check_result = \DeepWebSolutions\Framework\dws_wp_framework_check_php_wp_requirements_met( \DeepWebSolutions\Framework\dws_wp_framework_get_bootstrapper_min_php(), \DeepWebSolutions\Framework\dws_wp_framework_get_bootstrapper_min_wp() );

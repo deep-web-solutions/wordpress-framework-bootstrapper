@@ -4,7 +4,7 @@
 **Requires at least:** 5.5  
 **Tested up to:** 5.7  
 **Requires PHP:** 7.4  
-**Stable tag:** 1.1.1  
+**Stable tag:** 1.1.2  
 **License:** GPLv3 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -70,6 +70,10 @@ Hopefully yes, probably not. If you found any problems, please raise an issue on
 
 
 ## Changelog
+
+=== 1.1.2 (March 16th, 2021)
+* Added `declare( strict_types = 1 )` to test files.
+* Fixed minor tweaks and typos in tests.
 
 ### 1.1.1 (March 15th, 2021)
 * Prefixed all functions from the global namespace to clear ambiguity.

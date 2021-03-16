@@ -1,4 +1,4 @@
-<?php
+<?php declare( strict_types = 1 );
 
 namespace DeepWebSolutions\Framework\Bootstrapper\Tests\Integration;
 
@@ -8,8 +8,8 @@ use WpunitTester;
 /**
  * Integration test for whitelabel functionality.
  *
- * @since   1.0.0
- * @version 1.0.0
+ * @since   1.1.0
+ * @version 1.1.2
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.com>
  * @package DeepWebSolutions\WP-Framework\Bootstrapper\Tests\Integration
  */
@@ -19,8 +19,8 @@ class WhitelabelTest extends WPTestCase {
 	/**
 	 * Instance of the default WP actor.
 	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
+	 * @since   1.1.0
+	 * @version 1.1.0
 	 *
 	 * @access  protected
 	 * @var     WpunitTester
@@ -34,8 +34,8 @@ class WhitelabelTest extends WPTestCase {
 	/**
 	 * Test that the whitelabel name and logo path constants have been successfully overwritten.
 	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
+	 * @since   1.1.0
+	 * @version 1.1.0
 	 */
 	public function test_name_and_logo() {
 		$this->assertEquals( 'Whitelabel Name', \DeepWebSolutions\Framework\dws_wp_framework_get_whitelabel_name() );
@@ -46,8 +46,8 @@ class WhitelabelTest extends WPTestCase {
 	/**
 	 * Test that the support constants have been successfully overwritten.
 	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
+	 * @since   1.1.0
+	 * @version 1.1.0
 	 */
 	public function test_support() {
 		$this->assertEquals( 'whitelabel-support@whitelabel-company.com', \DeepWebSolutions\Framework\dws_wp_framework_get_whitelabel_support_email() );
@@ -57,8 +57,8 @@ class WhitelabelTest extends WPTestCase {
 	/**
 	 * Test that the temp directory constants have been successfully overwritten.
 	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
+	 * @since   1.1.0
+	 * @version 1.1.0
 	 */
 	public function test_temp_directory() {
 		$this->assertEquals( 'temp-dir-name', \DeepWebSolutions\Framework\dws_wp_framework_get_temp_dir_name() );

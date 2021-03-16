@@ -1,4 +1,4 @@
-<?php
+<?php declare( strict_types = 1 );
 
 namespace DeepWebSolutions\Framework\Bootstrapper\Tests\Acceptance;
 
@@ -8,8 +8,8 @@ use Codeception\TestCase\WPTestCase;
 /**
  * Acceptance test for ensuring the admin notice is shown every time it should be.
  *
- * @since   1.0.0
- * @version 1.0.0
+ * @since   1.1.0
+ * @version 1.1.2
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.com>
  * @package DeepWebSolutions\WP-Framework\Bootstrapper\Tests\Acceptance
  */
@@ -19,8 +19,8 @@ class AdminNoticeTest extends WPTestCase {
 	/**
 	 * Instance of the default WP actor.
 	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
+	 * @since   1.1.0
+	 * @version 1.1.0
 	 *
 	 * @access  protected
 	 * @var     AcceptanceTester
@@ -34,8 +34,8 @@ class AdminNoticeTest extends WPTestCase {
 	/**
 	 * Checks that the admin notice is present if initialization failed and that it's NOT present otherwise.
 	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
+	 * @since   1.1.0
+	 * @version 1.1.0
 	 */
 	public function test_it_works() {
 		$this->tester->loginAsAdmin();
