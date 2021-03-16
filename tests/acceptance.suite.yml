@@ -8,6 +8,7 @@
 actor: AcceptanceTester
 modules:
     enabled:
+        - WPLoader
         - WPDb
         - WPBrowser
         - \Helper\Acceptance
@@ -26,6 +27,7 @@ modules:
             loadOnly: true
             plugins: [ 'dws-wp-bootstrapper-test-plugin/bootstrap.php' ]
             activatePlugins: [ 'dws-wp-bootstrapper-test-plugin/bootstrap.php' ]
+
         WPDb:
             dsn: '%TEST_SITE_DB_DSN%'
             user: '%TEST_SITE_DB_USER%'
