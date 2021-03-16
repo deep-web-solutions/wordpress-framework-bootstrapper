@@ -48,4 +48,5 @@ modules:
             adminPath: '%TEST_SITE_WP_ADMIN_PATH%'
             headers:
                 X_TEST_REQUEST: 1
+                X_TEST_BOOTSTRAPPER_REQUEST: 1
                 X_WPBROWSER_REQUEST: 1
