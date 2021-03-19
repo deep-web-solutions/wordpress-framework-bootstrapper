@@ -99,10 +99,10 @@ function dws_wp_framework_check_php_wp_requirements_met( $min_php_version, $min_
 /**
  * Prints an error that the system requirements weren't met.
  *
- * @SuppressWarnings(PHPMD.UnusedFormalParameter)
- *
  * @since   1.0.0
  * @version 1.1.1
+ *
+ * @SuppressWarnings(PHPMD.UnusedFormalParameter)
  *
  * @param   string  $component_name     The name of the component that wants to record the error.
  * @param   string  $component_version  The version of the component that wants to record the error.

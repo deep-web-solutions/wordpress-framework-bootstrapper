@@ -1,0 +1,15 @@
+{
+    "classes": [],
+    "functions": [
+        "did_action",
+        "_doing_it_wrong",
+        "add_action",
+        "wp_get_upload_dir",
+        "load_plugin_textdomain",
+        "plugin_basename",
+        "do_action",
+        "wp_kses",
+        "__",
+        "esc_html"
+    ]
+}
