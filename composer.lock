@@ -719,12 +719,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/deep-web-solutions/wordpress-configs.git",
-                "reference": "2a7c943f06570517af49fbd64408c598d98522be"
+                "reference": "4f690a7920e58f1764ed5d414f0706b0341abc6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-configs/zipball/2a7c943f06570517af49fbd64408c598d98522be",
-                "reference": "2a7c943f06570517af49fbd64408c598d98522be",
+                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-configs/zipball/4f690a7920e58f1764ed5d414f0706b0341abc6a",
+                "reference": "4f690a7920e58f1764ed5d414f0706b0341abc6a",
                 "shasum": ""
             },
             "require": {
@@ -770,7 +770,7 @@
                 "issues": "https://github.com/deep-web-solutions/wordpress-configs/issues",
                 "source": "https://github.com/deep-web-solutions/wordpress-configs/tree/master"
             },
-            "time": "2021-03-19T13:32:11+00:00"
+            "time": "2021-03-19T14:24:27+00:00"
         },
         {
             "name": "dg/mysql-dump",
