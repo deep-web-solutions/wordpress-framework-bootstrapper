@@ -88,7 +88,7 @@ before_install:
 
 install:
   - phpenv config-rm xdebug.ini
-  - composer self-update
+  - composer self-update 
   - if [[ "$TEST" == "1" ]]; then composer install --prefer-source --no-interaction --ignore-platform-reqs ; fi # Ignore platform requirements to install on lower PHP version and check that execution indeed fails.
   - if [[ "$TEST" != "1" ]]; then composer install --no-dev --prefer-source --no-interaction --ignore-platform-reqs ; fi # Ignore platform requirements to install on lower PHP version and check that execution indeed fails.
   # Install and configure WordPress.
