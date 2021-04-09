@@ -69,9 +69,26 @@ module.exports = function( grunt ) {
 						nonull: true
 					} ]
 				}
+			},
+
+			replace : {
+				readme    : {
+					src 	     : [ 'README.md' ],
+					overwrite    : true,
+					replacements : [
+						{
+							from : /\*\*Stable tag:\*\* (.*)/,
+							to   : "**Stable tag:** <%= package.version %>"
+						},
+					]
+				},
+				bootstrap : {
+
+				}
 			}
 		}
 	);
 
 	grunt.registerTask( 'i18n', ['makepot', 'potomo'] );
+	grunt.registerTask( 'version_number', [ 'replace:readme' ] );
 }
