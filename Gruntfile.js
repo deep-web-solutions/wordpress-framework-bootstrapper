@@ -10,13 +10,23 @@ module.exports = function( grunt ) {
 	// Project configuration
 	grunt.initConfig(
 		{
-			package : grunt.file.readJSON( 'package.json' ),
-			dirs    : {
+			package 		   : grunt.file.readJSON( 'package.json' ),
+			dirs    		   : {
 				lang : 'src/languages',
 				code : 'src'
 			},
 
-			makepot : {
+			glotpress_download : {
+				dist : {
+					options : {
+						domainPath : '<%= dirs.lang %>',
+						url		   : 'https://translate.deep-web-solutions.com/glotpress/',
+						slug 	   : 'dws-wp-framework/bootstrapper',
+						textdomain : 'dws-wp-framework-bootstrapper'
+					}
+				}
+			},
+			makepot 		   : {
 				dist : {
 					options : {
 						cwd             : '<%= dirs.code %>',
@@ -55,23 +65,8 @@ module.exports = function( grunt ) {
 					}
 				}
 			},
-			potomo  : {
-				dist : {
-					options : {
-						poDel : false
-					},
-					files : [ {
-						expand: true,
-						cwd: '<%= dirs.lang %>',
-						src: [ '*.po' ],
-						dest: '<%= dirs.lang %>',
-						ext: '.mo',
-						nonull: true
-					} ]
-				}
-			},
 
-			replace : {
+			replace 		   : {
 				readme_md     : {
 					src 	     : [ 'README.md' ],
 					overwrite    : true,
@@ -100,6 +95,6 @@ module.exports = function( grunt ) {
 		}
 	);
 
-	grunt.registerTask( 'i18n', ['makepot', 'potomo'] );
+	grunt.registerTask( 'i18n', [ 'makepot', 'glotpress_download' ] );
 	grunt.registerTask( 'version_number', [ 'replace:readme_md', 'replace:bootstrap_php' ] );
 }
