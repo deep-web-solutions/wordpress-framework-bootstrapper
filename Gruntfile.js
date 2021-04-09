@@ -72,23 +72,34 @@ module.exports = function( grunt ) {
 			},
 
 			replace : {
-				readme    : {
+				readme_md     : {
 					src 	     : [ 'README.md' ],
 					overwrite    : true,
 					replacements : [
 						{
 							from : /\*\*Stable tag:\*\* (.*)/,
-							to   : "**Stable tag:** <%= package.version %>"
-						},
+							to   : "**Stable tag:** <%= package.version %>  "
+						}
 					]
 				},
-				bootstrap : {
-
+				bootstrap_php : {
+					src 		 : [ 'bootstrap.php' ],
+					overwrite 	 : true,
+					replacements : [
+						{
+							from : /Version:(\s*)(.*)/,
+							to   : "Version:$1<%= package.version %>"
+						},
+						{
+							from : /define\( __NAMESPACE__ \. '\\DWS_WP_FRAMEWORK_BOOTSTRAPPER_VERSION', '(.*)' \);/,
+							to   : "define( __NAMESPACE__ . '\\DWS_WP_FRAMEWORK_BOOTSTRAPPER_VERSION', '<%= package.version %>' );"
+						}
+					]
 				}
 			}
 		}
 	);
 
 	grunt.registerTask( 'i18n', ['makepot', 'potomo'] );
-	grunt.registerTask( 'version_number', [ 'replace:readme' ] );
+	grunt.registerTask( 'version_number', [ 'replace:readme_md', 'replace:bootstrap_php' ] );
 }
