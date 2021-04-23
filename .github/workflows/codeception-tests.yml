@@ -80,9 +80,8 @@ jobs:
             sleep 1
           done
 
-      - name: Setup MySQL database
-        run: |
-          mysql -u $TEST_SITE_DB_USER -p"$TEST_SITE_DB_PASSWORD" -h"127.0.0.1" -P"$TEST_SITE_DB_PORT" -e "SHOW DATABASES;"
+      - name: Verify MariaDB database list
+        run: mysql -u $TEST_SITE_DB_USER -p"$TEST_SITE_DB_PASSWORD" -h"127.0.0.1" -P"$TEST_SITE_DB_PORT" -e "SHOW DATABASES;"
 
       - name: Setup WP CLI tools
         run: |
@@ -96,7 +95,7 @@ jobs:
         run: |
           cd $WP_ROOT_FOLDER
           wp core download --version=${{ matrix.WP_VERSION }}
-          wp config create --dbname="$TEST_SITE_DB_NAME" --dbuser="$TEST_SITE_DB_USER" --dbpass="$TEST_SITE_DB_PASSWORD" --dbhost="$TEST_SITE_DB_HOST:$DB_PORT" --dbprefix="$TEST_SITE_TABLE_PREFIX"
+          wp config create --dbname="$TEST_SITE_DB_NAME" --dbuser="$TEST_SITE_DB_USER" --dbpass="$TEST_SITE_DB_PASSWORD" --dbhost="$TEST_SITE_DB_HOST" --dbprefix="$TEST_SITE_TABLE_PREFIX"
           wp core install --url="$TEST_SITE_WP_URL" --title="Test" --admin_user="$TEST_SITE_ADMIN_USERNAME" --admin_password="$TEST_SITE_ADMIN_PASSWORD" --admin_email="$TEST_SITE_ADMIN_EMAIL" --skip-email
           wp rewrite structure '/%postname%/' --hard
           wp core update-db
