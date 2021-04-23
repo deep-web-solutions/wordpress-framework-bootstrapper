@@ -69,7 +69,10 @@ jobs:
         run: sudo /etc/init.d/mysql start
 
       - name: Setup MySQL database
-        run: mysql -u $TEST_SITE_DB_USER -p$TEST_SITE_DB_PASSWORD -e "CREATE DATABASE IF NOT EXISTS $TEST_SITE_DB_NAME;"
+        run: |
+          mysql -u $TEST_SITE_DB_USER -p$TEST_SITE_DB_PASSWORD -e "CREATE DATABASE IF NOT EXISTS $TEST_SITE_DB_NAME;"
+          mysql -u $TEST_SITE_DB_USER -p$TEST_SITE_DB_PASSWORD -e "SHOW FULL TABLES;"
+          mysql -u $TEST_SITE_DB_USER -p$TEST_SITE_DB_PASSWORD -e "SHOW VARIABLES;"
 
       - name: Setup WP CLI tools
         run: |
