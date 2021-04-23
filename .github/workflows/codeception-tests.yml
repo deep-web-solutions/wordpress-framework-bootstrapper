@@ -37,7 +37,7 @@ jobs:
       fail-fast: false
       max-parallel: 1
       matrix:
-        php: [ 7.3, 7.4, 8.0 ]
+        php: [ 7.2, 7.3, 7.4, 8.0 ]
         WP_VERSION: [ 5.5, latest, nightly ]
         include:
           - php: 7.4
@@ -56,6 +56,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
+          extensions: mysqli
 
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
