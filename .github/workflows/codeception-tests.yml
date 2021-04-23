@@ -69,6 +69,7 @@ jobs:
         run: |
           mysql -u $TEST_SITE_DB_USER -p$TEST_SITE_DB_PASSWORD -e "CREATE DATABASE IF NOT EXISTS $TEST_SITE_DB_NAME;"
           mysql -u $TEST_SITE_DB_USER -p$TEST_SITE_DB_PASSWORD -e "SHOW DATABASES;"
+          sudo service mysql status
 
       - name: Setup WP CLI tools
         run: |
