@@ -71,6 +71,7 @@ jobs:
         run: |
           echo "TEST_DB_HOST=127.0.0.1:$DB_PORT" >> $GITHUB_ENV
           echo "TEST_SITE_DB_HOST=127.0.0.1:$DB_PORT" >> $GITHUB_ENV
+          echo "TEST_SITE_DB_PORT=$DB_PORT" >> $GITHUB_ENV
           echo "TEST_SITE_DB_DSN=mysql:host=127.0.0.1:$DB_PORT;dbname=$TEST_SITE_DB_NAME" >> $GITHUB_ENV
 
       - name: Verify MariaDB connection
@@ -83,7 +84,7 @@ jobs:
 
       - name: Setup MySQL database
         run: |
-          mysql -u $TEST_SITE_DB_USER -p$TEST_SITE_DB_PASSWORD -h $TEST_SITE_DB_HOST -e "SHOW DATABASES;"
+          mysql -u $TEST_SITE_DB_USER -p$TEST_SITE_DB_PASSWORD -p $TEST_SITE_DB_PORT -e "SHOW DATABASES;"
 
       - name: Setup WP CLI tools
         run: |
