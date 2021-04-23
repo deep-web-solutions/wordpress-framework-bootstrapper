@@ -52,12 +52,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup proper PHP version
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          extensions: mysqli
-
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
 
@@ -110,8 +104,14 @@ jobs:
       - name: Generate DB export
         run: wp db export $GITHUB_WORKSPACE/tests/_data/dump.sql --path=$WP_ROOT_FOLDER
 
-      - name: Go back to working directory and install dependencies
+      - name: Install module dev dependencies
         run: composer install --no-interaction --ignore-platform-reqs --prefer-dist --no-progress
+
+      - name: Setup proper PHP version
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mysqli
 
       - name: Start a web server
         run: |

@@ -34,7 +34,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-php-
 
-      - name: Install dependencies
+      - name: Install module dev dependencies
         run: composer install --no-interaction --ignore-platform-reqs --prefer-dist --no-progress
 
       - name: Run PHP Code Sniffer
