@@ -37,11 +37,15 @@ jobs:
       fail-fast: false
       max-parallel: 1
       matrix:
-        php: [ 7.2, 7.3, 7.4, 8.0 ]
+        php: [ 7.3, 7.4, 8.0 ]
         WP_VERSION: [ 5.5, latest, nightly ]
         include:
           - php: 7.4
             WP_VERSION: 4.9
+          - php: 7.4
+            WP_VERSION: 5.4
+          - php: 7.3
+            WP_VERSION: 5.4
 
     runs-on: ubuntu-latest
 
