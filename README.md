@@ -11,6 +11,7 @@
 
 ## Description
 
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 [![PHP Syntax Errors](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/php-syntax-errors.yml/badge.svg)](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/php-syntax-errors.yml)
 [![WordPress Coding Standards](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/wordpress-coding-standards.yml/badge.svg)](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/wordpress-coding-standards.yml)
 [![Codeception Tests](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/codeception-tests.yml/badge.svg)](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/codeception-tests.yml)
@@ -27,6 +28,12 @@ the constant *DWS_WP_FRAMEWORK_BOOTSTRAPPER_INIT* to either true or false depend
 
 The end-plugin can now make use of the same functions to check for minimum WP and PHP requirements, and also use the same functions
 for outputting an error message.
+
+
+## Documentation
+
+Documentation for this module and the rest of the DWS WP Framework can be found [here](https://framework.deep-web-solutions.com/bootstrapper-module/motivation). 
+
 
 ## Installation
 
