@@ -52,8 +52,8 @@ jobs:
         ports:
           - 3306
         env:
-          MYSQL_DATABASE: $TEST_SITE_DB_NAME
-          MYSQL_ROOT_PASSWORD: $TEST_SITE_DB_PASSWORD
+          MYSQL_DATABASE: test_acceptance
+          MYSQL_ROOT_PASSWORD: root
           options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
 
     steps:
