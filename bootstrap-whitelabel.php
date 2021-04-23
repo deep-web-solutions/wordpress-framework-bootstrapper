@@ -20,7 +20,7 @@ namespace DeepWebSolutions\Framework;
 \defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO_PATH' ) || \define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO_PATH', __DIR__ . \str_replace( '/', \DIRECTORY_SEPARATOR, '/src/assets/dws_logo.svg' ) );
 
 \defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_EMAIL' ) || \define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_EMAIL', 'support@deep-web-solutions.com' );
-\defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_URL' ) || \define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_URL', 'https://support.deep-web-solutions.com' );
+\defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_URL' ) || \define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_URL', 'https://www.deep-web-solutions.com/support/' );
 
 $dws_bootstrapper_wp_upload_dir = \wp_get_upload_dir();
 \defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME' ) || \define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME', 'deep-web-solutions' );
