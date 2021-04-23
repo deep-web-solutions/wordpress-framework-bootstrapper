@@ -72,7 +72,6 @@ jobs:
         run: |
           mysql -u $TEST_SITE_DB_USER -p$TEST_SITE_DB_PASSWORD -e "CREATE DATABASE IF NOT EXISTS $TEST_SITE_DB_NAME;"
           mysql -u $TEST_SITE_DB_USER -p$TEST_SITE_DB_PASSWORD -e "SHOW DATABASES;"
-          mysql -u $TEST_SITE_DB_USER -p$TEST_SITE_DB_PASSWORD -e "SHOW GLOBAL VARIABLES LIKE 'PORT';"
 
       - name: Setup WP CLI tools
         run: |
@@ -87,6 +86,7 @@ jobs:
           cd $WP_ROOT_FOLDER
           wp core download --version=${{ matrix.WP_VERSION }}
           wp config create --dbname="$TEST_SITE_DB_NAME" --dbuser="$TEST_SITE_DB_USER" --dbpass="$TEST_SITE_DB_PASSWORD" --dbhost="$TEST_SITE_DB_HOST" --dbprefix="$TEST_SITE_TABLE_PREFIX"
+          cat wp-config.php
           wp core install --url="$TEST_SITE_WP_URL" --title="Test" --admin_user="$TEST_SITE_ADMIN_USERNAME" --admin_password="$TEST_SITE_ADMIN_PASSWORD" --admin_email="$TEST_SITE_ADMIN_EMAIL" --skip-email
           wp rewrite structure '/%postname%/' --hard
           wp core update-db
