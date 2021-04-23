@@ -38,7 +38,7 @@ jobs:
       max-parallel: 1
       matrix:
         php: [ 7.2, 7.3, 7.4, 8.0 ]
-        WP_VERSION: [ 4.9, 5.5, latest, nightly ]
+        WP_VERSION: [ 5.5, latest, nightly ]
 
     runs-on: ubuntu-latest
 
@@ -69,7 +69,6 @@ jobs:
         run: |
           mysql -u $TEST_SITE_DB_USER -p$TEST_SITE_DB_PASSWORD -e "CREATE DATABASE IF NOT EXISTS $TEST_SITE_DB_NAME;"
           mysql -u $TEST_SITE_DB_USER -p$TEST_SITE_DB_PASSWORD -e "SHOW DATABASES;"
-          sudo service mysql status
 
       - name: Setup WP CLI tools
         run: |
