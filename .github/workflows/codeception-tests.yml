@@ -14,7 +14,7 @@ jobs:
 
       # For acceptance and functional tests
       TEST_SITE_DB_DSN: "mysql:host=127.0.0.1;dbname=test_acceptance"
-      TEST_SITE_DB_HOST: localhost
+      TEST_SITE_DB_HOST: 127.0.0.1
       TEST_SITE_DB_NAME: test_acceptance
       TEST_SITE_DB_USER: root
       TEST_SITE_DB_PASSWORD: root
@@ -101,7 +101,7 @@ jobs:
         run: |
           wp plugin activate dws-wp-bootstrapper-test-plugin
           wp plugin list --status=active
-          
+
       - name: Generate DB export
         run: wp db export $GITHUB_WORKSPACE/tests/_data/dump.sql --path=$WP_ROOT_FOLDER
 

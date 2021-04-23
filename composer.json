@@ -70,7 +70,7 @@
       "@php ./vendor/bin/phpmd . json phpmd.xml.dist"
     ],
     "coding-standards:check": [
-      "@php ./vendor/bin/phpcs --standard=phpcs.xml.dist -vv"
+      "@php ./vendor/bin/phpcs --standard=phpcs.xml.dist -v"
     ],
     "coding-standards:fix": [
       "@php ./vendor/bin/phpcbf --standard=phpcs.xml.dist"
