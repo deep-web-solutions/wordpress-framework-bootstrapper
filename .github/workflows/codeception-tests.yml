@@ -95,6 +95,7 @@ jobs:
 
       - name: Activate the test plugin
         run: |
+          cd $WP_ROOT_FOLDER
           wp plugin activate dws-wp-bootstrapper-test-plugin
           wp plugin list --status=active
 
@@ -102,9 +103,7 @@ jobs:
         run: wp db export $GITHUB_WORKSPACE/tests/_data/dump.sql --path=$WP_ROOT_FOLDER
 
       - name: Go back to working directory and install dependencies
-        run: |
-          cd $GITHUB_WORKSPACE
-          composer install --no-interaction --ignore-platform-reqs --prefer-dist --no-progress
+        run: composer install --no-interaction --ignore-platform-reqs --prefer-dist --no-progress
 
       - name: Start a web server
         run: |
