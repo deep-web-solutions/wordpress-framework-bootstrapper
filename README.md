@@ -12,7 +12,7 @@
 ## Description
 
 [![PHP Syntax Errors](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/php-syntax-errors.yml/badge.svg)](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/php-syntax-errors.yml)
-[![PHP Coding Standards](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/php-coding-standards.yml/badge.svg)](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/php-coding-standards.yml)
+[![WordPress Coding Standards](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/wordpress-coding-standards.yml/badge.svg)](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/wordpress-coding-standards.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b9f94cc3e336c49975b2/maintainability)](https://codeclimate.com/github/deep-web-solutions/wordpress-framework-bootstrapper/maintainability)
 
 A set of related functions that help bootstrap and version the other DWS WordPress Framework components.
