@@ -40,13 +40,13 @@ jobs:
         include:
           - php: 7.4
             WP_VERSION: 4.9
-            os: [ ubuntu-latest, windows-latest ]
+            os: ubuntu-latest
           - php: 7.4
             WP_VERSION: 5.4
-            os: [ ubuntu-latest, windows-latest ]
+            os: ubuntu-latest
           - php: 7.3
             WP_VERSION: 5.4
-            os: [ ubuntu-latest, windows-latest ]
+            os: ubuntu-latest
 
     runs-on: ${{ matrix.os }}
 
