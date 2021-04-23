@@ -84,7 +84,7 @@ jobs:
 
       - name: Setup MySQL database
         run: |
-          mysql -u $TEST_SITE_DB_USER -p$TEST_SITE_DB_PASSWORD -p $TEST_SITE_DB_PORT -e "SHOW DATABASES;"
+          mysql -u $TEST_SITE_DB_USER -p$TEST_SITE_DB_PASSWORD -P $TEST_SITE_DB_PORT -e "SHOW DATABASES;"
 
       - name: Setup WP CLI tools
         run: |
