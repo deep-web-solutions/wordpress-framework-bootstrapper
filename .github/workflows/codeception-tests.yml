@@ -50,15 +50,14 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: false
-          MYSQL_ROOT_PASSWORD: $TEST_SITE_DB_PASSWORD
-          MYSQL_DATABASE: $TEST_SITE_DB_NAME
+      mariadb:
+        image: mariadb:latest
         ports:
-          - 3306/tcp
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+          - 3306
+        env:
+          MYSQL_DATABASE: $TEST_SITE_DB_NAME
+          MYSQL_ROOT_PASSWORD: $TEST_SITE_DB_PASSWORD
+          options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
 
     steps:
       - uses: actions/checkout@v2
@@ -68,6 +67,14 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           extensions: mbstring, intl, pdo_mysql
+
+      - name: Verify MariaDB connection
+        env:
+          DB_PORT: ${{ job.services.mariadb.ports[3306] }}
+        run: |
+          while ! mysqladmin ping -h"127.0.0.1" -P"$DB_PORT" --silent; do
+            sleep 1
+          done
 
       - name: Setup MySQL database
         run: |
@@ -85,7 +92,7 @@ jobs:
         run: |
           cd $WP_ROOT_FOLDER
           wp core download --version=${{ matrix.WP_VERSION }}
-          wp config create --dbname="$TEST_SITE_DB_NAME" --dbuser="$TEST_SITE_DB_USER" --dbpass="$TEST_SITE_DB_PASSWORD" --dbhost="$TEST_SITE_DB_HOST" --dbprefix="$TEST_SITE_TABLE_PREFIX"
+          wp config create --dbname="$TEST_SITE_DB_NAME" --dbuser="$TEST_SITE_DB_USER" --dbpass="$TEST_SITE_DB_PASSWORD" --dbhost="$TEST_SITE_DB_HOST:$DB_PORT" --dbprefix="$TEST_SITE_TABLE_PREFIX"
           wp core install --url="$TEST_SITE_WP_URL" --title="Test" --admin_user="$TEST_SITE_ADMIN_USERNAME" --admin_password="$TEST_SITE_ADMIN_PASSWORD" --admin_email="$TEST_SITE_ADMIN_EMAIL" --skip-email
           wp rewrite structure '/%postname%/' --hard
           wp core update-db
