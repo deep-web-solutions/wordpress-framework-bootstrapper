@@ -69,8 +69,8 @@ jobs:
         env:
           DB_PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
-          echo "TEST_DB_HOST=$TEST_DB_HOST:$DB_PORT" >> $GITHUB_ENV
-          echo "TEST_SITE_DB_HOST=$TEST_SITE_DB_HOST:$DB_PORT" >> $GITHUB_ENV
+          echo "TEST_DB_HOST=127.0.0.1:$DB_PORT" >> $GITHUB_ENV
+          echo "TEST_SITE_DB_HOST=127.0.0.1:$DB_PORT" >> $GITHUB_ENV
           echo "TEST_SITE_DB_DSN=mysql:host=127.0.0.1:$DB_PORT;dbname=$TEST_SITE_DB_NAME" >> $GITHUB_ENV
 
       - name: Verify MariaDB connection
