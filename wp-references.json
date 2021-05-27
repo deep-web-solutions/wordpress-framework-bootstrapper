@@ -9,6 +9,7 @@
         "plugin_basename",
         "do_action",
         "wp_kses",
+        "wp_sprintf",
         "__",
         "esc_html"
     ]
