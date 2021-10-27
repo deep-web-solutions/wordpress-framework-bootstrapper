@@ -3,7 +3,6 @@ module.exports = function( grunt ) {
 
 	// Load all grunt tasks matching the `grunt-*` pattern
 	require( 'load-grunt-tasks' )( grunt );
-	grunt.loadNpmTasks( '@lodder/grunt-postcss' );
 
 	// Show elapsed time
 	require( '@lodder/time-grunt' )( grunt );
