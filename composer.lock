@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2dd4a9a8f1cee37d1506ce20b8dd51cf",
+    "content-hash": "122e9358333c5ce860b006ecc8869919",
     "packages": [],
     "packages-dev": [
         {
@@ -2784,16 +2784,16 @@
         },
         {
             "name": "lucatume/wp-browser",
-            "version": "3.0.18",
+            "version": "3.0.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lucatume/wp-browser.git",
-                "reference": "eff4b188a7f651ab857cbb452d49235eedbc55f1"
+                "reference": "5ab64406424d881bece302515fa00104ae224c45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lucatume/wp-browser/zipball/eff4b188a7f651ab857cbb452d49235eedbc55f1",
-                "reference": "eff4b188a7f651ab857cbb452d49235eedbc55f1",
+                "url": "https://api.github.com/repos/lucatume/wp-browser/zipball/5ab64406424d881bece302515fa00104ae224c45",
+                "reference": "5ab64406424d881bece302515fa00104ae224c45",
                 "shasum": ""
             },
             "require": {
@@ -2874,7 +2874,7 @@
             ],
             "support": {
                 "issues": "https://github.com/lucatume/wp-browser/issues",
-                "source": "https://github.com/lucatume/wp-browser/tree/3.0.18"
+                "source": "https://github.com/lucatume/wp-browser/tree/3.0.21"
             },
             "funding": [
                 {
@@ -2882,7 +2882,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-05T09:25:36+00:00"
+            "time": "2022-01-11T10:33:03+00:00"
         },
         {
             "name": "mikehaertl/php-shellcommand",
