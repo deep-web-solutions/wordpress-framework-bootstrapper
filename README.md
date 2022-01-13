@@ -82,8 +82,8 @@ Hopefully yes, probably not. If you found any problems, please raise an issue on
 
 ### 1.3.0 (January 13th, 2022)
 * Updated hooks to conform to new format in the rest of the framework.
-* Replaced wp_kses with wp_kses_post in the requirements-error.php template file.
-* Replaced usage of DIRECTORY_SEPARATOR with calls to wp_normalize_path.
+* Replaced `wp_kses` with `wp_kses_post` in the `requirements-error.php` template file.
+* Replaced usage of `DIRECTORY_SEPARATOR` with calls to `wp_normalize_path`.
 * Improved automated testing.
 
 ### 1.2.0 (May 27th, 2021)
