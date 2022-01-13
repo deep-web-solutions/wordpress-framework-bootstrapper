@@ -3,7 +3,7 @@
  * The DWS WordPress Framework Bootstrapper Test Plugin bootstrap file.
  *
  * @since               1.1.0
- * @version             1.2.1
+ * @version             1.3.0
  * @package             DeepWebSolutions\WP-Framework\Bootstrapper\Tests
  * @author              Deep Web Solutions GmbH
  * @copyright           2021 Deep Web Solutions GmbH

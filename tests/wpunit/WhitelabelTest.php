@@ -17,7 +17,7 @@ use function DeepWebSolutions\Framework\dws_wp_framework_get_whitelabel_support_
  * Integration test for whitelabel functionality.
  *
  * @since   1.1.0
- * @version 1.2.1
+ * @version 1.3.0
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.com>
  * @package DeepWebSolutions\WP-Framework\Bootstrapper\Tests\Integration
  */
@@ -66,7 +66,7 @@ class WhitelabelTest extends WPTestCase {
 	 * Test that the temp directory constants have been successfully overwritten.
 	 *
 	 * @since   1.1.0
-	 * @version 1.2.1
+	 * @version 1.3.0
 	 */
 	public function test_temp_directory() {
 		$this->assertEquals( 'temp-dir-name', dws_wp_framework_get_temp_dir_name() );

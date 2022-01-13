@@ -3,7 +3,7 @@
  * A very early error message displayed if environment requirements are not met.
  *
  * @since   1.0.0
- * @version 1.2.1
+ * @version 1.3.0
  * @package DeepWebSolutions\WP-Framework\Bootstrapper
  *
  * @see     dws_wp_framework_output_requirements_error
