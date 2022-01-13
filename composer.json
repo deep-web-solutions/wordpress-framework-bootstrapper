@@ -86,7 +86,7 @@
     ],
     "test:acceptance": [
       "Composer\\Config::disableProcessTimeout",
-      "@php ./vendor/bin/codecept run acceptance --debug"
+      "@php ./vendor/bin/codecept run acceptance"
     ],
     "test:integration": [
       "Composer\\Config::disableProcessTimeout",
