@@ -42,6 +42,7 @@
     "codeception/module-filesystem": "^1.0",
     "codeception/module-cli": "^1.1",
     "codeception/util-universalframework": "^1.0",
+    "codeception/stub": "<4.0",
     "hoa/console": "^3.17",
     "vlucas/phpdotenv": "^5.4"
   },
