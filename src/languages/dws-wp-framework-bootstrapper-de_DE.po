@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the DWS WP Framework - Framework Bootstrapper package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-09 12:37:39+0000\n"
+"PO-Revision-Date: 2022-01-13 13:27:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,25 +11,25 @@ msgstr ""
 "Language: de\n"
 "Project-Id-Version: DWS WP Framework - Framework Bootstrapper\n"
 
-#. translators: 1. Component name, 2. Component version
-#: templates/requirements-error.php:31
-msgid "<strong>%1$s (%2$s)</strong> has encountered an error. Your environment doesn't meet all of the system requirements listed below:"
-msgstr "<strong>%1$s (%2$s)</strong> ist auf einen Fehler gestoßen. Ihre Umgebung erfüllt nicht alle der unten aufgeführten Systemanforderungen:"
-
-#. translators: %s: PHP version
-#. translators: %s: WordPress version
-#: templates/requirements-error.php:47 templates/requirements-error.php:51
-msgid "You're running version %s"
-msgstr "Sie verwenden die Version %s"
-
-#: templates/requirements-error.php:60
-msgid "If you need to upgrade your version of PHP you can ask your hosting company for assistance, and if you need help upgrading WordPress you can refer to <a href=\"https://wordpress.org/support/article/updating-wordpress/\" target=\"_blank\">the Codex</a>."
-msgstr "Wenn Sie Ihre PHP-Version aktualisieren müssen, können Sie Ihre Hosting-Firma um Hilfe bitten, und wenn Sie Hilfe bei der Aktualisierung von WordPress benötigen, können Sie sich an den <a href=\"https://wordpress.org/support/article/updating-wordpress/\" target=\"_blank\">Codex</a> wenden."
+#: bootstrap.php:41
+msgid "Deep Web Solutions: Framework Bootstrapper"
+msgstr "Deep Web Solutions: Framework Bootstrapper"
 
 #: bootstrap-whitelabel.php:19
 msgid "Deep Web Solutions"
 msgstr "Deep Web Solutions"
 
-#: bootstrap.php:41
-msgid "Deep Web Solutions: Framework Bootstrapper"
-msgstr "Deep Web Solutions: Framework Bootstrapper"
+#: templates/requirements-error.php:61
+msgid "If you need to upgrade your version of PHP you can ask your hosting company for assistance, and if you need help upgrading WordPress you can refer to <a href=\"https://wordpress.org/support/article/updating-wordpress/\" target=\"_blank\">the Codex</a>."
+msgstr "Wenn Sie Ihre PHP-Version aktualisieren müssen, können Sie Ihre Hosting-Firma um Hilfe bitten, und wenn Sie Hilfe bei der Aktualisierung von WordPress benötigen, können Sie sich an den <a href=\"https://wordpress.org/support/article/updating-wordpress/\" target=\"_blank\">Codex</a> wenden."
+
+#. translators: PHP version
+#. translators: WordPress version
+#: templates/requirements-error.php:46 templates/requirements-error.php:50
+msgid "You're running version %s"
+msgstr "Sie verwenden die Version %s"
+
+#. translators: 1. Component name, 2. Component version
+#: templates/requirements-error.php:31
+msgid "<strong>%1$s (%2$s)</strong> has encountered an error. Your environment doesn't meet all the system requirements listed below:"
+msgstr "<strong>%1$s (%2$s)</strong> ist auf einen Fehler gestoßen. Ihre Umgebung erfüllt nicht alle der unten aufgeführten Systemanforderungen:"

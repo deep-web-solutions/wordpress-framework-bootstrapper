@@ -4,11 +4,12 @@
         "did_action",
         "_doing_it_wrong",
         "add_action",
+        "wp_normalize_path",
         "wp_get_upload_dir",
         "load_plugin_textdomain",
         "plugin_basename",
         "do_action",
-        "wp_kses",
+        "wp_kses_post",
         "wp_sprintf",
         "__",
         "esc_html"
