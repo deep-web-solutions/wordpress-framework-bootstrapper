@@ -3,7 +3,7 @@
  * Defines whitelabel-ing constants and getters.
  *
  * @since   1.0.0
- * @version 1.1.1
+ * @version 1.2.1
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.com>
  * @package DeepWebSolutions\WP-Framework\Bootstrapper
  *
@@ -17,14 +17,14 @@ namespace DeepWebSolutions\Framework;
 // region CONSTANTS
 
 \defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_NAME' ) || \define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_NAME', 'Deep Web Solutions' );
-\defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO_PATH' ) || \define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO_PATH', __DIR__ . \str_replace( '/', \DIRECTORY_SEPARATOR, '/src/assets/dws_logo.svg' ) );
+\defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO_PATH' ) || \define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_LOGO_PATH', \wp_normalize_path( __DIR__ . '/src/assets/dws_logo.svg' ) );
 
 \defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_EMAIL' ) || \define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_EMAIL', 'support@deep-web-solutions.com' );
 \defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_URL' ) || \define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_WHITELABEL_SUPPORT_URL', 'https://www.deep-web-solutions.com/support/' );
 
 $dws_bootstrapper_wp_upload_dir = \wp_get_upload_dir();
 \defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME' ) || \define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME', 'deep-web-solutions' );
-\defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_PATH' ) || \define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_PATH', $dws_bootstrapper_wp_upload_dir['basedir'] . \DIRECTORY_SEPARATOR . \constant( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_NAME' ) . DIRECTORY_SEPARATOR );
+\defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_PATH' ) || \define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_PATH', \wp_normalize_path( $dws_bootstrapper_wp_upload_dir['basedir'] . '/' . dws_wp_framework_get_temp_dir_name() . '/' ) );
 \defined( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_URL' ) || \define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_TEMP_DIR_URL', $dws_bootstrapper_wp_upload_dir['baseurl'] . '/' . dws_wp_framework_get_temp_dir_name() . '/' );
 
 // endregion
