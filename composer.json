@@ -74,10 +74,10 @@
       "@php ./vendor/bin/phpmd . json phpmd.xml.dist"
     ],
     "coding-standards:check": [
-      "@php ./vendor/bin/phpcs --standard=phpcs.xml.dist -v"
+      "@php ./vendor/bin/phpcs --standard=phpcs.xml.dist -s -v"
     ],
     "coding-standards:fix": [
-      "@php ./vendor/bin/phpcbf --standard=phpcs.xml.dist"
+      "@php ./vendor/bin/phpcbf --standard=phpcs.xml.dist -v"
     ],
 
     "test:clean": [
@@ -95,5 +95,12 @@
       "Composer\\Config::disableProcessTimeout",
       "@php ./vendor/bin/codecept run wpunit --coverage --coverage-xml --coverage-html"
     ]
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/*": true,
+      "deep-web-solutions/*": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }

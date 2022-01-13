@@ -87,7 +87,7 @@ function dws_wp_framework_get_bootstrapper_init_status() {
  * @return  bool
  */
 function dws_wp_framework_check_php_wp_requirements_met( $min_php_version, $min_wp_version ) {
-	if ( \version_compare( \PHP_VERSION, $min_php_version, '<' ) ) {
+	if ( \version_compare( PHP_VERSION, $min_php_version, '<' ) ) {
 		return false;
 	} elseif ( \version_compare( $GLOBALS['wp_version'], $min_wp_version, '<' ) ) {
 		return false;
