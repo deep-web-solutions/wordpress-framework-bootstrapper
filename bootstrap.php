@@ -9,6 +9,8 @@
  * @copyright           2021 Deep Web Solutions GmbH
  * @license             GPL-3.0-or-later
  *
+ * @noinspection StaticClosureCanBeUsedInspection
+ *
  * @wordpress-plugin
  * Plugin Name:         DWS WordPress Framework Bootstrapper
  * Description:         A set of related functions that help bootstrap and version the other DWS WordPress Framework components.
