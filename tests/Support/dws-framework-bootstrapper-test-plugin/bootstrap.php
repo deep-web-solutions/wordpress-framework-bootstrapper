@@ -8,7 +8,7 @@
  * @license             GPL-3.0-or-later
  *
  * @wordpress-plugin
- * Plugin Name:         DWS WordPress Framework Bootstrapper Test Plugin
+ * Plugin Name:         DWS Framework Bootstrapper Test Plugin
  * Description:         A WP plugin used to run automated tests against the DWS WP Framework Bootstrapper package.
  * Version:             2.0.0
  * Requires PHP:        5.3

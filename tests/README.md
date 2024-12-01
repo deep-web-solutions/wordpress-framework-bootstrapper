@@ -9,9 +9,9 @@
 	* mariadb -e "CREATE USER IF NOT EXISTS 'wpcom_studio'@'localhost' IDENTIFIED BY '<your secret password>'"
 	* mariadb -e "GRANT ALL PRIVILEGES ON dws_framework_bootstrapper.* TO 'wpcom_studio'@'localhost'"
 
-1) Create a new database for the automated tests:
-	* mariadb -e "CREATE DATABASE IF NOT EXISTS dws_framework_bootstrapper_tests"
-	* mariadb -e "GRANT ALL PRIVILEGES ON dws_framework_bootstrapper_tests.* TO 'wpcom_studio'@'localhost'"
+1) Create a new database for the E2E tests:
+	* mariadb -e "CREATE DATABASE IF NOT EXISTS dws_framework_bootstrapper_e2e"
+	* mariadb -e "GRANT ALL PRIVILEGES ON dws_framework_bootstrapper_e2e.* TO 'wpcom_studio'@'localhost'"
 
 1) Create a new site in *Studio by WordPress.com* and configure it to use the database you created in the previous step.
 	* Suggested site name: `DWS Framework Bootstrapper`
@@ -32,6 +32,16 @@
 	* `cd <path to the plugin>`
 	* `mysqldump -u wpcom_studio -p dws_framework_bootstrapper > ./tests/Support/Data/dump.sql`
 
+1) Modify your `wp-config.php` file to conditionally use the test database when running the E2E tests.
+
+	```php
+	if ( isset( $_COOKIE['TEST_REQUEST'] ) ) {
+		define( 'DB_NAME', 'dws_wp_framework_bootstrapper_e2e' );
+	} else {
+		define( 'DB_NAME', 'dws_wp_framework_bootstrapper' );
+	}
+	```
+
 1) Install selenium-server and chromedriver to run the E2E tests.
 	* https://formulae.brew.sh/formula/selenium-server
 	* https://formulae.brew.sh/cask/chromedriver
@@ -45,9 +55,9 @@
    * In a new terminal tab, run `selenium-server standalone --port 4444`
    * If you use a different port, update the `CHROMEDRIVER_PORT` variable inside the `tests/.env` file accordingly.
 
-1) Copy the `tests/Supports/dws-wp-bootstrapper-test-plugin` to the `wp-content/plugins` directory of your site.
-	* `cp -r tests/Supports/dws-wp-bootstrapper-test-plugin <path to the site>/wp-content/plugins`
-    * `cd <path to the site>/wp-content/plugins/dws-wp-bootstrapper-test-plugin && composer update`
+1) Copy the `tests/Supports/dws-framework-bootstrapper-test-plugin` to the `wp-content/plugins` directory of your site.
+	* `cp -r tests/Supports/dws-framework-bootstrapper-test-plugin <path to the site>/wp-content/plugins`
+    * `cd <path to the site>/wp-content/plugins/dws-framework-bootstrapper-test-plugin && composer update`
 
 1) Activate the plugin in the site's admin dashboard. Every time you make a change to the bootstrapper component, make sure to sync the changes to that plugin.
  	* For example, by using PhpStorm's local deployment feature.

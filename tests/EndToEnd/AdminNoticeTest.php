@@ -10,13 +10,15 @@ class AdminNoticeTest extends Unit {
     protected EndToEndTester $tester;
 
     protected function _before() {
+		$this->tester->setTestCookie();
+		$this->tester->loginAsAdmin();
+
+		$this->tester->amOnPluginsPage();
+	    $this->tester->activatePlugin( 'dws-framework-bootstrapper-test-plugin' );
     }
 
-    // tests
-    public function testSomeFeature() {
-	    $this->tester->loginAsAdmin();
-	    $this->tester->amOnAdminPage( '/' );
-
+    public function test_admin_notice_output() {
+		require WP_PLUGIN_DIR . '/dws-framework-bootstrapper-test-plugin/bootstrap.php';
 	    if ( true === \DeepWebSolutions\Framework\is_bootstrapper_initialized() ) {
 		    codecept_debug( 'Bootstrapper has been initialized ... checking that the message is NOT present' );
 		    $this->tester->dontSee( 'Your environment does not meet all the system requirements listed below' );

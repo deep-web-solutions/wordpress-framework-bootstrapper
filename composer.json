@@ -61,6 +61,7 @@
     "makemo": "wp i18n make-mo ./languages/",
     "makephp": "wp i18n make-php ./languages/",
 
+    "test:clean": "@php ./vendor/bin/codecept clean",
     "test": [
       "@test:integration",
       "@test:end-to-end"

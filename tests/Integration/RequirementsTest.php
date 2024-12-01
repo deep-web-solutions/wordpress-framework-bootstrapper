@@ -2,12 +2,9 @@
 
 namespace Tests\Integration;
 
-use Tests\Support\IntegrationTester;
 use lucatume\WPBrowser\TestCase\WPTestCase;
 
 class RequirementsTest extends WPTestCase {
-	protected IntegrationTester $tester;
-
    public function test_is_wp_version_compatible() {
 		$this->assertTrue( \DeepWebSolutions\Framework\is_wp_version_compatible( '5.0' ) );
         $this->assertFalse( \DeepWebSolutions\Framework\is_wp_version_compatible( '100.0' ) );
@@ -19,7 +16,7 @@ class RequirementsTest extends WPTestCase {
    }
 
 	public function test_validate_plugin_requirements() {
-		$result = \DeepWebSolutions\Framework\validate_plugin_requirements( 'dws-wp-bootstrapper-test-plugin/bootstrap.php' );
+		$result = \DeepWebSolutions\Framework\validate_plugin_requirements( 'dws-framework-bootstrapper-test-plugin/bootstrap.php' );
 		if ( \DeepWebSolutions\Framework\is_wp_version_compatible( '6.7' ) && \DeepWebSolutions\Framework\is_php_version_compatible( '8.4' ) ) {
 			$this->assertTrue( $result );
 		} else {

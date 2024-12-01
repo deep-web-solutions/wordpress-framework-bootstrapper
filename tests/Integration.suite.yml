@@ -16,5 +16,4 @@ modules:
            domain: '%WORDPRESS_DOMAIN%'
            adminEmail: 'admin@%WORDPRESS_DOMAIN%'
            title: 'Integration Tests'
-           plugins: ['dws-wp-bootstrapper-test-plugin/bootstrap.php']
-           theme: ''
+           plugins: [ 'dws-framework-bootstrapper-test-plugin/bootstrap.php' ]
