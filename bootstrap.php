@@ -14,7 +14,7 @@
  * Plugin Name:         Deep Web Solutions Framework Bootstrapper
  * Description:         A set of related functions that help bootstrap and version the other DWS WordPress Framework components.
  * Version:             2.0.0
- * Requires at least:   6.8
+ * Requires at least:   6.7
  * Requires PHP:        8.4
  * Author:              Antonius Hegyes
  * Author URI:          https://github.com/ahegyes
