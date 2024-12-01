@@ -1,0 +1,64 @@
+name: Codeception Tests
+
+on:
+  push:
+    branches: [ trunk ]
+  pull_request:
+    branches: [ trunk ]
+
+jobs:
+  test:
+    env:
+      # Must match the env variables in .dist.env
+      WORDPRESS_ROOT_DIR: /tmp/wordpress
+      WORDPRESS_DB_URL: mysql://root:password@127.0.0.1:3306/test_e2e
+
+      TEST_TABLE_PREFIX: test_
+      WORDPRESS_TABLE_PREFIX: wp_
+
+      WORDPRESS_URL: http://localhost:8888
+      WORDPRESS_DOMAIN: localhost:8888
+      WORDPRESS_ADMIN_PATH: /wp-admin
+
+      WORDPRESS_ADMIN_USER: admin
+      WORDPRESS_ADMIN_PASSWORD: password
+
+      CHROMEDRIVER_HOST: localhost
+      CHROMEDRIVER_PORT: 4444
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php: [ 7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3, 8.4 ]
+        WP_VERSION: [ latest, nightly ]
+        include:
+          - php: 8.4
+            WP_VERSION: 6.6
+          - php: 8.3
+            WP_VERSION: 6.7
+          - php: 8.3
+            WP_VERSION: 6.6
+          - php: 8.4
+            WP_VERSION: 6.7
+
+    runs-on: ubuntu-latest
+
+    services:
+      mariadb:
+        image: mariadb:latest
+        ports:
+          - 3306
+        env:
+          MYSQL_DATABASE: test_e2e
+          MYSQL_ROOT_PASSWORD: password
+          options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup proper PHP version
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: composer
+

@@ -13,21 +13,13 @@
   ],
 
   "require": {
-    "php": ">=8.4"
+    "php": ">=5.3"
   },
   "require-dev": {
     "johnpbloch/wordpress-core": "6.7.*",
     "deep-web-solutions/wordpress-configs": "dev-trunk",
 
-    "wp-coding-standards/wpcs": "^3",
-    "phpcompatibility/phpcompatibility-wp": "*",
-
-    "phpmd/phpmd": "^2",
-
-    "phpstan/phpstan": "^2",
-    "phpstan/extension-installer": "^1",
-    "phpstan/phpstan-strict-rules": "^2",
-
+    "wp-cli/i18n-command": "^2",
     "lucatume/wp-browser": "^4",
 
     "roave/security-advisories": "dev-latest"
@@ -40,15 +32,46 @@
   },
 
   "scripts": {
+    "post-autoload-dump": [
+      "DeepWebSolutions\\Config\\Composer\\FindWPCoreCalls::postAutoloadDump"
+    ],
+
     "generate-autoloader": "@composer dump-autoload --ignore-platform-reqs -o",
 
     "format:php": [
       "phpcbf --standard=./.phpcs.xml --basepath=. ./ -v"
     ],
     "lint:php": [
-      "phpcs --standard=./.phpcs.xml --basepath=. ./ -v",
-      "phpmd ./ github ./.phpmd.xml -v",
-      "phpstan analyse -c ./.phpstan.neon -vvv --debug"
+      "@lint:php:phpcs",
+      "@lint:php:phpmd",
+      "@lint:php:phpstan"
+    ],
+    "lint:php:phpcs": "phpcs --standard=./.phpcs.xml --basepath=. ./ -v",
+    "lint:php:phpmd": "phpmd ./ ansi ./.phpmd.xml -v",
+    "lint:php:phpstan": "phpstan analyse -c ./.phpstan.neon -v --memory-limit=1G",
+
+    "internationalize": [
+      "@makepot",
+      "@updatepo",
+      "@makemo",
+      "@makephp"
+    ],
+    "makepot": "wp i18n make-pot ./ --slug=dws-wp-framework-bootstrapper",
+    "updatepo": "wp i18n update-po ./languages/dws-wp-framework-bootstrapper.pot",
+    "makemo": "wp i18n make-mo ./languages/",
+    "makephp": "wp i18n make-php ./languages/",
+
+    "test": [
+      "@test:integration",
+      "@test:end-to-end"
+    ],
+    "test:integration": [
+      "Composer\\Config::disableProcessTimeout",
+      "@php ./vendor/bin/codecept run Integration --debug"
+    ],
+    "test:end-to-end": [
+      "Composer\\Config::disableProcessTimeout",
+      "@php ./vendor/bin/codecept run EndToEnd  --debug"
     ],
 
     "packages-install": "@composer install --ignore-platform-reqs --no-interaction",

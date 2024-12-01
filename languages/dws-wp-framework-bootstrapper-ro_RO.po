@@ -1,0 +1,58 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DWS WP Framework - Framework Bootstrapper\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-01T14:48:23+00:00\n"
+"PO-Revision-Date: 2024-12-01 14:45:42+0000\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n == 0 || n % 100 >= 2 && n % 100 <= 19) ? 1 : 2);\n"
+"X-Generator: GlotPress/4.0.1\n"
+
+#: includes/requirements.php:118
+msgid "Your environment does not meet all the system requirements listed below:"
+msgstr "Mediul dumneavoastră nu îndeplinește toate cerințele de sistem enumerate mai jos:"
+
+#. translators: 1: Plugin name, 2: Plugin version
+#: includes/requirements.php:112
+msgid "<strong>%1$s (version %2$s)</strong> could not be initialized."
+msgstr "<strong>%1$s (versiunea %2$s)</strong> nu a putut fi inițializat."
+
+#. translators: 1: Current PHP version, 2: Minimum PHP version
+#: includes/requirements.php:141
+msgid "Current <em>PHP version (%1$s)</em> does not meet minimum required version of %2$s."
+msgstr "<em>Versiunea actuală de PHP (%1$s)</em> nu îndeplinește versiunea minimă necesară de %2$s."
+
+#. translators: 1: Current WP version, 2: Minimum WP version
+#: includes/requirements.php:133
+msgid "Current <em>WordPress version (%1$s)</em> does not meet minimum required version of %2$s."
+msgstr "<em>Versiunea actuală de WordPress (%1$s)</em> nu îndeplinește versiunea minimă necesară de %2$s."
+
+#. translators: %s: Author name
+#: functions.php:82
+msgid "%s Framework Bootstrapper"
+msgstr "%s Framework Bootstrapper"
+
+#. Author URI of the plugin
+#: bootstrap.php
+msgid "https://github.com/ahegyes"
+msgstr "https://github.com/ahegyes"
+
+#. Author of the plugin
+#: bootstrap.php
+msgid "Antonius Hegyes"
+msgstr "Antonius Hegyes"
+
+#. Description of the plugin
+#: bootstrap.php
+msgid "A set of related functions that help bootstrap and version the other DWS WordPress Framework components."
+msgstr "Un set de funcții conexe care ajută la bootstraparea și la versionarea celorlalte componente DWS WordPress Framework."
+
+#. Plugin Name of the plugin
+#: bootstrap.php
+msgid "Deep Web Solutions Framework Bootstrapper"
+msgstr "Deep Web Solutions Framework Bootstrapper"
