@@ -2,7 +2,7 @@
 
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 [![PHP Syntax Errors](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/php-syntax-errors.yml/badge.svg)](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/php-syntax-errors.yml)
-[![WordPress Coding Standards](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/wordpress-coding-standards.yml/badge.svg)](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/wordpress-coding-standards.yml)
+[![PHP Quality Assurance](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/php-quality-assurance.yml/badge.svg)](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/php-quality-assurance.yml)
 [![Codeception Tests](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/codeception-tests.yml/badge.svg)](https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/actions/workflows/codeception-tests.yml)
 
 
