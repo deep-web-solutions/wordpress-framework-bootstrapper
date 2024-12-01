@@ -2,72 +2,58 @@
 /**
  * The DWS WordPress Framework Bootstrapper bootstrap file.
  *
- * @since               1.0.0
- * @version             1.1.1
- * @package             DeepWebSolutions\WP-Framework\Bootstrapper
- * @author              Deep Web Solutions GmbH
- * @copyright           2021 Deep Web Solutions GmbH
- * @license             GPL-3.0-or-later
+ * @since       1.0.0
+ * @version     2.0.0
+ * @package     DeepWebSolutions\Framework
+ * @author      Antonius Hegyes
+ * @license     GPL-3.0-or-later
  *
- * @noinspection StaticClosureCanBeUsedInspection
+ * @noinspection    ALL
  *
  * @wordpress-plugin
- * Plugin Name:         DWS WordPress Framework Bootstrapper
+ * Plugin Name:         Deep Web Solutions Framework Bootstrapper
  * Description:         A set of related functions that help bootstrap and version the other DWS WordPress Framework components.
- * Version:             1.3.0
- * Requires at least:   5.5
- * Requires PHP:        5.3
- * Author:              Deep Web Solutions GmbH
- * Author URI:          https://www.deep-web-solutions.com
+ * Version:             2.0.0
+ * Requires at least:   6.8
+ * Requires PHP:        8.4
+ * Author:              Antonius Hegyes
+ * Author URI:          https://github.com/ahegyes
  * License:             GPL-3.0+
  * License URI:         http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:         dws-wp-framework-bootstrapper
- * Domain Path:         /src/languages
+ * Domain Path:         /languages
  */
 
 namespace DeepWebSolutions\Framework;
 
 if ( ! \defined( 'ABSPATH' ) ) {
-	return; // Since this file is autoloaded by Composer, 'exit' breaks all external dev tools.
+	// Since this file is autoloaded by Composer, 'exit' breaks all external dev tools.
+	return;
 }
 
-// Start by autoloading dependencies and defining a few functions for running the bootstrapper.
-// The conditional check makes the whole thing compatible with Composer-based WP management.
-\is_file( __DIR__ . '/vendor/autoload.php' ) && require_once __DIR__ . '/vendor/autoload.php';
+// Define component constants.
+\define( __NAMESPACE__ . '\BOOTSTRAPPER_BASENAME', \plugin_basename( __FILE__ ) );
+\define( __NAMESPACE__ . '\BOOTSTRAPPER_DIR_PATH', \plugin_dir_path( __FILE__ ) );
+\define( __NAMESPACE__ . '\BOOTSTRAPPER_DIR_URL', \plugin_dir_url( __FILE__ ) );
 
-// Load whitelabel settings and module-specific bootstrapping functions.
-require_once __DIR__ . '/bootstrap-whitelabel.php';
-require_once __DIR__ . '/bootstrap-functions.php';
+// Load the rest of the bootstrapper.
+require_once __DIR__ . '/functions.php';
 
-// Define bootstrapper constants.
-\define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_NAME', dws_wp_framework_get_whitelabel_name() . ': Framework Bootstrapper' );
-\define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_VERSION', '1.3.0' );
-
-// Define minimum environment requirements.
-\define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_PHP', '7.4' );
-\define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_MIN_WP', '5.5' );
-
-/**
- * Register the language files for the bootstrapper's text domain.
- *
- * @since   1.0.0
- * @version 1.0.0
- */
+// Load component translations, so they are available even for the error admin notices.
 \add_action(
 	'init',
-	function() {
+	static function () {
 		\load_plugin_textdomain(
-			'dws-wp-framework-bootstrapper',
+			get_bootstrapper_metadata( 'TextDomain' ),
 			false,
-			\dirname( \plugin_basename( __FILE__ ) ) . '/src/languages'
+			\dirname( get_bootstrapper_basename() ) . get_bootstrapper_metadata( 'DomainPath' )
 		);
 	}
 );
 
 // Bootstrap the bootstrapper (maybe)!
-if ( dws_wp_framework_check_php_wp_requirements_met( dws_wp_framework_get_bootstrapper_min_php(), dws_wp_framework_get_bootstrapper_min_wp() ) ) {
-	\define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_INIT', true );
-} else {
-	\define( __NAMESPACE__ . '\DWS_WP_FRAMEWORK_BOOTSTRAPPER_INIT', false );
-	dws_wp_framework_output_requirements_error( dws_wp_framework_get_bootstrapper_name(), dws_wp_framework_get_bootstrapper_version(), dws_wp_framework_get_bootstrapper_min_php(), dws_wp_framework_get_bootstrapper_min_wp() );
+\define( __NAMESPACE__ . '\BOOTSTRAPPER_REQUIREMENTS', validate_plugin_requirements( get_bootstrapper_basename() ) );
+if ( true !== is_bootstrapper_initialized() ) {
+	/* @phpstan-ignore argument.type */
+	output_requirements_error( get_bootstrapper_name(), get_bootstrapper_version(), get_bootstrapper_requirements_status() );
 }

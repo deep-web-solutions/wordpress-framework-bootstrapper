@@ -1,0 +1,14 @@
+{
+  "name": "deep-web-solutions/wp-framework-bootstrapper-test-plugin",
+  "type": "wordpress-plugin",
+
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/deep-web-solutions/wordpress-framework-bootstrapper"
+    }
+  ],
+  "require": {
+    "deep-web-solutions/wp-framework-bootstrapper": "trunk@dev"
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "classes": [
+        "WP_Error"
+    ],
+    "functions": [
+        "wp_sprintf",
+        "__",
+        "did_action",
+        "get_plugin_data",
+        "is_wp_version_compatible",
+        "is_php_version_compatible",
+        "add_action",
+        "get_bloginfo",
+        "wp_admin_notice",
+        "wp_normalize_path",
+        "is_email",
+        "plugin_basename",
+        "plugin_dir_path",
+        "plugin_dir_url",
+        "load_plugin_textdomain",
+        "validate_plugin_requirements"
+    ]
+}
