@@ -43,7 +43,7 @@
 
 1) Start the selenium server:
    * In a new terminal tab, run `selenium-server standalone --port 4444`
-	* If you use a different port, update the `CHROMEDRIVER_PORT` variable inside the `tests/.env` file accordingly.
+   * If you use a different port, update the `CHROMEDRIVER_PORT` variable inside the `tests/.env` file accordingly.
 
 1) Copy the `tests/Supports/dws-wp-bootstrapper-test-plugin` to the `wp-content/plugins` directory of your site.
 	* `cp -r tests/Supports/dws-wp-bootstrapper-test-plugin <path to the site>/wp-content/plugins`

@@ -20,9 +20,9 @@ namespace DeepWebSolutions\Plugins;
 
 // Register autoloader for testing dependencies.
 \is_file( __DIR__ . '/vendor/autoload.php' ) && require_once __DIR__ . '/vendor/autoload.php';
-if ( ! \defined( 'DeepWebSolutions\Framework\WHITELABEL_AUTHOR_NAME' ) ) {
+if ( ! \defined( 'DeepWebSolutions\Framework\BOOTSTRAPPER_BASENAME' ) ) {
 	define( 'DeepWebSolutions\Framework\WHITELABEL_AUTHOR_NAME', 'Whitelabel Name' );
-	define( 'DeepWebSolutions\Framework\WHITELABEL_AUTHOR_LOGO_PATH', 'Whitelabel Logo Path' );
+	define( 'DeepWebSolutions\Framework\WHITELABEL_AUTHOR_LOGO_PATH', __FILE__ );
 
 	define( 'DeepWebSolutions\Framework\WHITELABEL_SUPPORT_EMAIL', 'whitelabel-support@whitelabel-company.com' );
 	define( 'DeepWebSolutions\Framework\WHITELABEL_SUPPORT_URL', 'whitelabel-company.com' );
