@@ -130,7 +130,7 @@ jobs:
         run: selenium-server standalone --port $CHROMEDRIVER_PORT &
 
       - name: Start a web server
-        run: php -S "$WORDPRESS_DOMAIN" -t "$WORDPRESS_ROOT_DIR" >/dev/null 2>&1
+        run: php -S "$WORDPRESS_DOMAIN" -t "$WORDPRESS_ROOT_DIR" >/dev/null 2>&1 &
 
       - name: Run Codeception tests
         run: composer run-script test
