@@ -36,18 +36,18 @@ jobs:
           php_version: ${{ matrix.php }}
 
       - name: Setup Codeception environment
-        run:
-          - echo "WORDPRESS_ROOT_DIR=${{ steps.install-wordpress.outputs.path }}" >> $GITHUB_ENV
-          - echo "WORDPRESS_DB_URL=mysql://${{ steps.install-wordpress.outputs.db_user }}:${{ steps.install-wordpress.outputs.db_pass }}@${{ steps.install-wordpress.outputs.db_host }}:${{ steps.install-wordpress.outputs.db_port }}/${{ steps.install-wordpress.outputs.db_name }}" >> $GITHUB_ENV
-          - echo "TEST_TABLE_PREFIX=test_" >> $GITHUB_ENV
-          - echo "WORDPRESS_TABLE_PREFIX=wp_" >> $GITHUB_ENV
-          - echo "WORDPRESS_URL=http://localhost" >> $GITHUB_ENV
-          - echo "WORDPRESS_DOMAIN=localhost" >> $GITHUB_ENV
-          - echo "WORDPRESS_ADMIN_PATH=/wp-admin" >> $GITHUB_ENV
-          - echo "WORDPRESS_ADMIN_USERNAME=${{ steps.install-wordpress.outputs.admin_username }}" >> $GITHUB_ENV
-          - echo "WORDPRESS_ADMIN_PASSWORD=${{ steps.install-wordpress.outputs.admin_password }}" >> $GITHUB_ENV
-          - echo "CHROMEDRIVER_HOST=localhost" >> $GITHUB_ENV
-          - echo "CHROMEDRIVER_PORT=4444" >> $GITHUB_ENV
+        run: |
+          echo "WORDPRESS_ROOT_DIR=${{ steps.install-wordpress.outputs.path }}" >> $GITHUB_ENV
+          echo "WORDPRESS_DB_URL=mysql://${{ steps.install-wordpress.outputs.db_user }}:${{ steps.install-wordpress.outputs.db_pass }}@${{ steps.install-wordpress.outputs.db_host }}:${{ steps.install-wordpress.outputs.db_port }}/${{ steps.install-wordpress.outputs.db_name }}" >> $GITHUB_ENV
+          echo "TEST_TABLE_PREFIX=test_" >> $GITHUB_ENV
+          echo "WORDPRESS_TABLE_PREFIX=wp_" >> $GITHUB_ENV
+          echo "WORDPRESS_URL=http://localhost" >> $GITHUB_ENV
+          echo "WORDPRESS_DOMAIN=localhost" >> $GITHUB_ENV
+          echo "WORDPRESS_ADMIN_PATH=/wp-admin" >> $GITHUB_ENV
+          echo "WORDPRESS_ADMIN_USERNAME=${{ steps.install-wordpress.outputs.admin_username }}" >> $GITHUB_ENV
+          echo "WORDPRESS_ADMIN_PASSWORD=${{ steps.install-wordpress.outputs.admin_password }}" >> $GITHUB_ENV
+          echo "CHROMEDRIVER_HOST=localhost" >> $GITHUB_ENV
+          echo "CHROMEDRIVER_PORT=4444" >> $GITHUB_ENV
 
       - name: Copy the plugin to the plugins directory
         run: |
