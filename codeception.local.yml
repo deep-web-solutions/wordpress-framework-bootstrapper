@@ -1,2 +1,2 @@
 params:
-    - tests/.env
+    - tests/.env # For local testing
