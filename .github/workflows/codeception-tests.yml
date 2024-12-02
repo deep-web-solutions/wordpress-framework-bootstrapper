@@ -66,6 +66,7 @@ jobs:
 
       - name: Install WordPress
         run: |
+          mkdir -p $WORDPRESS_ROOT_DIR
           cd $WORDPRESS_ROOT_DIR
           wp core download --version=${{ matrix.WP_VERSION }}
           wp config create --dbname="wordpress_test" --dbuser="root" --dbpass="password" --dbhost="localhost" --dbprefix="$WORDPRESS_TABLE_PREFIX"
