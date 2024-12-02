@@ -28,6 +28,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: shogo82148/actions-setup-mysql@v1
+        with:
+          mysql-version: "5.7"
+
       - name: Install WordPress
         id: install-wordpress
         uses: holyhope/install-wordpress-github-action@main
