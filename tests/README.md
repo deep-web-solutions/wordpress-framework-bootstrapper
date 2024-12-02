@@ -62,5 +62,8 @@
 1) Activate the plugin in the site's admin dashboard. Every time you make a change to the bootstrapper component, make sure to sync the changes to that plugin.
  	* For example, by using PhpStorm's local deployment feature.
 
+1) Copy the `codeception.local.yml` file to `codeception.yml` (ignored by git):
+	* `cp codeception.local.yml codeception.yml`
+
 1) Test that everything is working by running the automated tests:
 	* `composer run-script test`
