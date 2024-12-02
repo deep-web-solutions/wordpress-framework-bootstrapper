@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ebc28cac26417ee003cc687703104300",
+    "content-hash": "5a9c56c8c59e5a610de923548ce54c47",
     "packages": [],
     "packages-dev": [
         {
@@ -963,12 +963,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/deep-web-solutions/wordpress-configs.git",
-                "reference": "76e540b1252dfa37d991b0d11c2be22714d8a432"
+                "reference": "625bf94f1ae60224840e1845020ac4029a467974"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-configs/zipball/76e540b1252dfa37d991b0d11c2be22714d8a432",
-                "reference": "76e540b1252dfa37d991b0d11c2be22714d8a432",
+                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-configs/zipball/625bf94f1ae60224840e1845020ac4029a467974",
+                "reference": "625bf94f1ae60224840e1845020ac4029a467974",
                 "shasum": ""
             },
             "require": {
@@ -1012,7 +1012,7 @@
                 "issues": "https://github.com/deep-web-solutions/wordpress-configs/issues",
                 "source": "https://github.com/deep-web-solutions/wordpress-configs/tree/trunk"
             },
-            "time": "2024-12-01T16:31:45+00:00"
+            "time": "2024-12-02T17:03:55+00:00"
         },
         {
             "name": "druidfi/mysqldump-php",
@@ -7855,9 +7855,6 @@
             },
             "type": "wp-cli-package",
             "extra": {
-                "branch-alias": {
-                    "dev-main": "2.x-dev"
-                },
                 "bundled": true,
                 "commands": [
                     "i18n",
@@ -7866,7 +7863,10 @@
                     "i18n make-mo",
                     "i18n make-php",
                     "i18n update-po"
-                ]
+                ],
+                "branch-alias": {
+                    "dev-main": "2.x-dev"
+                }
             },
             "autoload": {
                 "files": [
@@ -8154,7 +8154,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.3"
+        "php": ">=8.4"
     },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"
