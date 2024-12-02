@@ -10,7 +10,7 @@ jobs:
   test:
     env:
       # Must match the environment variables in the .dist.env file
-      WORDPRESS_ROOT_DIR: ${{ runner.temp }}/wordpress
+      WORDPRESS_ROOT_DIR: /tmp/wordpress
       WORDPRESS_DB_URL: mysql://root:password@localhost:3306/wordpress_test
       TEST_TABLE_PREFIX: test_
       WORDPRESS_TABLE_PREFIX: wp_
