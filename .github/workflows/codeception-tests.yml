@@ -8,6 +8,20 @@ on:
 
 jobs:
   test:
+    env:
+      # Must match the environment variables in the .dist.env file
+      WORDPRESS_ROOT_DIR: ${{ runner.temp }}/wordpress
+      WORDPRESS_DB_URL: mysql://root:password@localhost:3306/wordpress_test
+      TEST_TABLE_PREFIX: test_
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_URL: http://localhost:8888
+      WORDPRESS_DOMAIN: localhost:8888
+      WORDPRESS_ADMIN_PATH: /wp-admin
+      WORDPRESS_ADMIN_USERNAME: admin
+      WORDPRESS_ADMIN_PASSWORD: password
+      CHROMEDRIVER_HOST: localhost
+      CHROMEDRIVER_PORT: 4444
+
     strategy:
       fail-fast: false
       matrix:
@@ -25,39 +39,45 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    services:
+      mariadb:
+        image: mariadb:latest
+        ports:
+          - 3306
+        env:
+          MYSQL_DATABASE: wordpress_test
+          MYSQL_ROOT_PASSWORD: password
+          options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
+
     steps:
       - uses: actions/checkout@v4
 
-      - uses: shogo82148/actions-setup-mysql@v1
+      - name: Setup proper PHP version
+        uses: shivammathur/setup-php@v2
         with:
-          mysql-version: "5.7"
+          php-version: ${{ matrix.php }}
+          tools: composer
+
+      - name: Setup WP CLI tools
+        run: |
+          curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+          chmod +x wp-cli.phar
+          mv wp-cli.phar /usr/local/bin/wp
 
       - name: Install WordPress
-        id: install-wordpress
-        uses: holyhope/install-wordpress-github-action@main
-        with:
-          wordpress_version: ${{ matrix.WP_VERSION }}
-          php_version: ${{ matrix.php }}
-
-      - name: Setup Codeception environment
         run: |
-          echo "WORDPRESS_ROOT_DIR=${{ steps.install-wordpress.outputs.path }}" >> $GITHUB_ENV
-          echo "WORDPRESS_DB_URL=mysql://${{ steps.install-wordpress.outputs.db_user }}:${{ steps.install-wordpress.outputs.db_pass }}@${{ steps.install-wordpress.outputs.db_host }}:${{ steps.install-wordpress.outputs.db_port }}/${{ steps.install-wordpress.outputs.db_name }}" >> $GITHUB_ENV
-          echo "TEST_TABLE_PREFIX=test_" >> $GITHUB_ENV
-          echo "WORDPRESS_TABLE_PREFIX=wp_" >> $GITHUB_ENV
-          echo "WORDPRESS_URL=http://localhost" >> $GITHUB_ENV
-          echo "WORDPRESS_DOMAIN=localhost" >> $GITHUB_ENV
-          echo "WORDPRESS_ADMIN_PATH=/wp-admin" >> $GITHUB_ENV
-          echo "WORDPRESS_ADMIN_USERNAME=${{ steps.install-wordpress.outputs.admin_username }}" >> $GITHUB_ENV
-          echo "WORDPRESS_ADMIN_PASSWORD=${{ steps.install-wordpress.outputs.admin_password }}" >> $GITHUB_ENV
-          echo "CHROMEDRIVER_HOST=localhost" >> $GITHUB_ENV
-          echo "CHROMEDRIVER_PORT=4444" >> $GITHUB_ENV
+          cd $WORDPRESS_ROOT_DIR
+          wp core download --version=${{ matrix.WP_VERSION }}
+          wp config create --dbname="wordpress_test" --dbuser="root" --dbpass="password" --dbhost="localhost" --dbprefix="$WORDPRESS_TABLE_PREFIX"
+          wp core install --url="$WORDPRESS_URL" --title="Test" --admin_user="$WORDPRESS_ADMIN_USERNAME" --admin_password="$WORDPRESS_ADMIN_PASSWORD" --admin_email="admin@test.com" --skip-email
+          wp rewrite structure '/%postname%/' --hard
+          wp core update-db
 
       - name: Copy the plugin to the plugins directory
         run: |
           cp -r $GITHUB_WORKSPACE/tests/Support/dws-framework-bootstrapper-test-plugin $WORDPRESS_ROOT_DIR/wp-content/plugins/dws-framework-bootstrapper-test-plugin/
           composer update --no-dev --no-interaction --ignore-platform-reqs --working-dir=$WORDPRESS_ROOT_DIR/wp-content/plugins/dws-framework-bootstrapper-test-plugin/
-          chmod -R 777 $WORDPRESS_ROOT_DIR
+          chmod -R 777 $WP_ROOT_FOLDER
 
       - name: Activate the test plugin
         run: |
@@ -66,7 +86,7 @@ jobs:
           wp plugin list --status=active
 
       - name: Generate DB export
-        run: ${{ steps.install-wordpress.outputs.wp_cli }} db export $GITHUB_WORKSPACE/tests/Supports/Data/dump.sql --path=$WORDPRESS_ROOT_DIR
+        run: wp db export $GITHUB_WORKSPACE/tests/Support/Data/dump.sql --path=$WORDPRESS_ROOT_DIR
 
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
@@ -87,8 +107,8 @@ jobs:
 
       - name: Start a web server
         run: |
-          php -S "localhost" -t "$WORDPRESS_ROOT_DIR" >/dev/null 2>&1 &
-          phantomjs --webdriver=4444 >/dev/null 2>&1 &
+          php -S "$WORDPRESS_DOMAIN" -t "$WORDPRESS_ROOT_DIR" >/dev/null 2>&1 &
+          phantomjs --webdriver=$CHROMEDRIVER_PORT >/dev/null 2>&1 &
 
       - name: Run Codeception tests
         run: composer run-script test
