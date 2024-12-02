@@ -92,7 +92,7 @@ jobs:
         run: |
           cp -r $GITHUB_WORKSPACE/tests/Support/dws-framework-bootstrapper-test-plugin $WORDPRESS_ROOT_DIR/wp-content/plugins/dws-framework-bootstrapper-test-plugin/
           composer update --no-dev --no-interaction --ignore-platform-reqs --working-dir=$WORDPRESS_ROOT_DIR/wp-content/plugins/dws-framework-bootstrapper-test-plugin/
-          chmod -R 777 $WP_ROOT_FOLDER
+          chmod -R 777 $WORDPRESS_ROOT_DIR
 
       - name: Activate the test plugin
         run: |
