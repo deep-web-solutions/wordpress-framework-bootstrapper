@@ -126,10 +126,11 @@ jobs:
           php-version: ${{ matrix.php }}
           tools: composer
 
+      - name: Start Selenium
+        run: selenium-server standalone --port $CHROMEDRIVER_PORT &
+
       - name: Start a web server
-        run: |
-          php -S "$WORDPRESS_DOMAIN" -t "$WORDPRESS_ROOT_DIR" >/dev/null 2>&1 &
-          phantomjs --webdriver=$CHROMEDRIVER_PORT >/dev/null 2>&1 &
+        run: php -S "$WORDPRESS_DOMAIN" -t "$WORDPRESS_ROOT_DIR" >/dev/null 2>&1
 
       - name: Run Codeception tests
         run: composer run-script test
