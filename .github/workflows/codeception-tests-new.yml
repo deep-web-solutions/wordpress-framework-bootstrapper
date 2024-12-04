@@ -64,4 +64,4 @@ jobs:
           plugins: '[ "./tests/Support/dws-framework-bootstrapper-test-plugin" ]'
 
       - name: Generate DB export
-        run: wp-env run cli wp db export $GITHUB_WORKSPACE/tests/Support/Data/dump.sql
+        run: wp-env run cli wp db export ./tests/Support/Data/dump.sql
