@@ -1,2 +1,0 @@
-params:
-    - tests/.env # For local testing
