@@ -35,4 +35,4 @@ jobs:
         with:
           core: ${{ matrix.WP_VERSION }}
           phpVersion: ${{ matrix.php }}
-          plugins: '[ "./tests/dws-framework-bootstrapper-test-plugin" ]'
+          plugins: '[ "./tests/Support/dws-framework-bootstrapper-test-plugin" ]'
