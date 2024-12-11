@@ -4,7 +4,6 @@
 	<rule ref="./vendor/deep-web-solutions/wordpress-configs/quality-assurance/phpmd.dist.xml"/>
 
 	<!-- What NOT to scan. -->
-	<exclude-pattern>*/old/*</exclude-pattern>
 	<exclude-pattern>*/tests/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
