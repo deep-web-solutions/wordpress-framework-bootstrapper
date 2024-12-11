@@ -10,9 +10,8 @@
 
 A set of related functions that help bootstrap and version the other DWS WordPress Framework components.
 
-The *bootstrap.php* file is designed to be one of the very first things that Composer will autoload when calling `require vendor/autoload.php`
-because it is mentioned specifically as a file to autoload in *composer.json*. Composer autoloads files on every request, immediately after setting up
-the autoloader.
+The *bootstrap.php* file is designed to be one of the very first things that will autoload when calling `require vendor/autoload.php`
+because it is mentioned specifically as a file to autoload in *composer.json*.
 
 Upon loading, the file will define the necessary functions and validate its own minimum requirements. The end-plugin can now make use of the same functions
 to check for minimum WP and PHP requirements, and also use the same functions for outputting an error message.

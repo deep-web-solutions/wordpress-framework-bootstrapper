@@ -12,6 +12,6 @@
     }
   },
   "lifecycleScripts": {
-    "afterStart": ".docker/setup.sh"
+    "afterStart": "vendor/deep-web-solutions/wordpress-configs/docker/wp-env-install-pdo_mysql.sh"
   }
 }

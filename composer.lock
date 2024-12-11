@@ -963,12 +963,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/deep-web-solutions/wordpress-configs.git",
-                "reference": "577c3d334eb084bd1423dcf3fe853880090d8727"
+                "reference": "5d59a823dfc71fe75fa3ab41b42933c54e15269a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-configs/zipball/577c3d334eb084bd1423dcf3fe853880090d8727",
-                "reference": "577c3d334eb084bd1423dcf3fe853880090d8727",
+                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-configs/zipball/5d59a823dfc71fe75fa3ab41b42933c54e15269a",
+                "reference": "5d59a823dfc71fe75fa3ab41b42933c54e15269a",
                 "shasum": ""
             },
             "require": {
@@ -1012,7 +1012,7 @@
                 "issues": "https://github.com/deep-web-solutions/wordpress-configs/issues",
                 "source": "https://github.com/deep-web-solutions/wordpress-configs/tree/trunk"
             },
-            "time": "2024-12-11T14:44:38+00:00"
+            "time": "2024-12-11T14:59:46+00:00"
         },
         {
             "name": "druidfi/mysqldump-php",
