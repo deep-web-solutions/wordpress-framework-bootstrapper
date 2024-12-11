@@ -12,7 +12,7 @@ jobs:
       fail-fast: false
       matrix:
         php: [ 8.2, 8.3, 8.4 ]
-        WP_VERSION: [ 'null', WordPress/WordPress#master ]
+        WP_VERSION: [ null, WordPress/WordPress#master ]
         include:
           - php: 8.4
             WP_VERSION: WordPress/WordPress#6.6
