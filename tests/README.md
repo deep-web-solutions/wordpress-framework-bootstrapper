@@ -10,7 +10,7 @@
 
 1. Run the following command to install a Selenium server with a Chromium browser:
    ```bash
-   docker run -d --shm-size="2g" --net=host --name="selenium-chromium" selenium/standalone-chromium
+   docker run -d --shm-size="2g" --net=host --name="selenium-chromium" selenium/standalone-chromium:latest
    ```
 
 1. Install the project dependencies:
