@@ -1,5 +1,9 @@
 {
-  "dependencies": {
+  "name": "dws-wp-framework-bootstrapper",
+  "license": "GPL-3.0-or-later",
+  "repository": "https://github.com/deep-web-solutions/wordpress-framework-bootstrapper",
+  "bugs": "https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/issues",
+  "devDependencies": {
     "@wordpress/env": "^10.13.0"
   },
   "scripts": {
