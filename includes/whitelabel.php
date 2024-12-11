@@ -58,7 +58,7 @@ function get_whitelabel_author_logo_path() {
  */
 function get_whitelabel_author_logo_url() {
 	$author_logo_path = get_whitelabel_author_logo_path();
-	return \str_replace( WP_CONTENT_DIR, WP_CONTENT_URL, $author_logo_path );
+	return \str_replace( WP_CONTENT_DIR, \content_url(), $author_logo_path );
 }
 
 /**

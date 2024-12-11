@@ -13,6 +13,7 @@
         "get_bloginfo",
         "wp_admin_notice",
         "wp_normalize_path",
+        "content_url",
         "is_email",
         "plugin_basename",
         "plugin_dir_path",
