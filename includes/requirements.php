@@ -78,7 +78,12 @@ function is_php_version_compatible( $min_php_version ) {
  */
 function validate_plugin_requirements( $plugin_basename ) {
 	$plugin_metadata = get_plugin_metadata( $plugin_basename );
-	\assert( isset( $plugin_metadata['RequiresPHP'], $plugin_metadata['RequiresWP'] ) );
+	if ( ! isset( $plugin_metadata['RequiresPHP'] ) || '' === $plugin_metadata['RequiresPHP'] ) {
+		$plugin_metadata['RequiresPHP'] = '8.4';
+	}
+	if ( ! isset( $plugin_metadata['RequiresWP'] ) || '' === $plugin_metadata['RequiresWP'] ) {
+		$plugin_metadata['RequiresWP'] = '6.7';
+	}
 
 	$is_php_compatible = is_php_version_compatible( $plugin_metadata['RequiresPHP'] );
 	$is_wp_compatible  = is_wp_version_compatible( $plugin_metadata['RequiresWP'] );

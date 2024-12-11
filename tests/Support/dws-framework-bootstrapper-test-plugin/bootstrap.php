@@ -11,7 +11,6 @@
  * Plugin Name:         DWS Framework Bootstrapper Test Plugin
  * Description:         A WP plugin used to run automated tests against the DWS WP Framework Bootstrapper package.
  * Version:             2.0.0
- * Requires PHP:        5.3
  */
 
 namespace DeepWebSolutions\Plugins;

@@ -13,27 +13,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/4.0.1\n"
 
-#: includes/requirements.php:118
+#: includes/requirements.php:123
 msgid "Your environment does not meet all the system requirements listed below:"
 msgstr "Deine Umgebung erfüllt nicht alle der unten aufgeführten Systemanforderungen:"
 
 #. translators: 1: Plugin name, 2: Plugin version
-#: includes/requirements.php:112
+#: includes/requirements.php:117
 msgid "<strong>%1$s (version %2$s)</strong> could not be initialized."
 msgstr "<strong>%1$s (Version %2$s)</strong> konnte nicht initialisiert werden."
 
 #. translators: 1: Current PHP version, 2: Minimum PHP version
-#: includes/requirements.php:141
+#: includes/requirements.php:146
 msgid "Current <em>PHP version (%1$s)</em> does not meet minimum required version of %2$s."
 msgstr "Die aktuelle <em>PHP-Version (%1$s)</em> entspricht nicht der erforderlichen Mindestversion von %2$s."
 
 #. translators: 1: Current WP version, 2: Minimum WP version
-#: includes/requirements.php:133
+#: includes/requirements.php:138
 msgid "Current <em>WordPress version (%1$s)</em> does not meet minimum required version of %2$s."
 msgstr "Die aktuelle <em>WordPress-Version (%1$s)</em> entspricht nicht der erforderlichen Mindestversion von %2$s."
 
 #. translators: %s: Author name
-#: functions.php:82
+#: functions.php:83
 msgid "%s Framework Bootstrapper"
 msgstr "%s Framework Bootstrapper"
 

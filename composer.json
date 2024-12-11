@@ -61,16 +61,17 @@
     "makemo": "wp i18n make-mo ./languages/",
     "makephp": "wp i18n make-php ./languages/",
 
-    "test:clean": "@php ./vendor/bin/codecept clean",
-    "test": [
-      "@test:integration",
-      "@test:end-to-end"
+    "selenium:start": "selenium-server standalone --port 4444",
+    "tests:clean": "@php ./vendor/bin/codecept clean",
+    "tests": [
+      "@tests:integration",
+      "@tests:end-to-end"
     ],
-    "test:integration": [
+    "tests:integration": [
       "Composer\\Config::disableProcessTimeout",
       "@php ./vendor/bin/codecept run Integration --debug"
     ],
-    "test:end-to-end": [
+    "tests:end-to-end": [
       "Composer\\Config::disableProcessTimeout",
       "@php ./vendor/bin/codecept run EndToEnd  --debug"
     ],

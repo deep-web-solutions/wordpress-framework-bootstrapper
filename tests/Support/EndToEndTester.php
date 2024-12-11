@@ -23,8 +23,7 @@ class EndToEndTester extends \Codeception\Actor
 {
     use _generated\EndToEndTesterActions;
 
-	public function setTestCookie() {
-		$this->amOnPage( '/' );
-		$this->setCookie( 'TEST_REQUEST', 'true' );
-	}
+	/**
+	 * Define custom actions here
+	 */
 }
