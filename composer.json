@@ -45,7 +45,7 @@
     ],
     "lint:php:phpcs": "phpcs --standard=./.phpcs.xml --basepath=. ./ -v",
     "lint:php:phpmd": "phpmd ./ ansi ./.phpmd.xml -v",
-    "lint:php:phpstan": "phpstan analyse -c ./.phpstan.neon -v --memory-limit=1G",
+    "lint:php:phpstan": "phpstan analyse -c ./.phpstan.neon -vvv --debug --memory-limit=1G",
 
     "internationalize": [
       "@i18n:makepot",
