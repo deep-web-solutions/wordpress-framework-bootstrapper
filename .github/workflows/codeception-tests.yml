@@ -12,16 +12,16 @@ jobs:
       fail-fast: false
       matrix:
         php: [ 8.2, 8.3, 8.4 ]
-        WP_VERSION: [ null, WordPress/WordPress#master ]
+        wp: [ null, WordPress/WordPress#master ]
         include:
           - php: 8.4
-            WP_VERSION: WordPress/WordPress#6.6
+            wp: WordPress/WordPress#6.6
           - php: 8.3
-            WP_VERSION: WordPress/WordPress#6.7
+            wp: WordPress/WordPress#6.7
           - php: 8.3
-            WP_VERSION: WordPress/WordPress#6.6
+            wp: WordPress/WordPress#6.6
           - php: 8.4
-            WP_VERSION: WordPress/WordPress#6.7
+            wp: WordPress/WordPress#6.7
 
     runs-on: ubuntu-latest
 
@@ -41,7 +41,7 @@ jobs:
         id: composer-cache
         run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
-      - name: Cache dependencies
+      - name: Cache composer dependencies
         uses: actions/cache@v3
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
@@ -54,13 +54,15 @@ jobs:
           npm ci
           docker run -d --shm-size="2g" --net=host --name="selenium-chromium" selenium/standalone-chromium:latest
 
-      - name: Prepare environment vars
+      - name: Prepare testing environment variables
         run: |
           cp ./tests/.dist.env ./tests/.env
-          touch .wp-env.override.json
-          echo "{\"core\": \"${{ matrix.WP_VERSION }}\", \"phpVersion\": \"${{ matrix.php }}\", \"env\": { \"development\": { \"plugins\": [] } } }" > .wp-env.override.json
 
-      - name: Start WordPress
+      - name: Override wp-env configuration
+        run: |
+          echo "{\"core\": \"${{ matrix.wp }}\", \"phpVersion\": \"${{ matrix.php }}\", \"env\": { \"development\": { \"plugins\": [] } } }" > .wp-env.override.json
+
+      - name: Start wp-env
         run: npm run wp-env:start
 
       - name: Create database fixture
