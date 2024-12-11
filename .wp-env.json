@@ -1,12 +1,10 @@
 {
-  "core": "WordPress/WordPress#6.7",
   "phpVersion": "8.3",
   "env": {
     "development": {
       "plugins": [ "." ]
     },
     "tests": {
-      "mysqlPort": 33306,
       "mappings": {
         "wp-content/plugins/dws-framework-bootstrapper-test-plugin": "./tests/Support/dws-framework-bootstrapper-test-plugin",
         "project": "."

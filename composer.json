@@ -32,15 +32,12 @@
   },
 
   "scripts": {
+    "generate-autoloader": "@composer dump-autoload --ignore-platform-reqs -o",
     "post-autoload-dump": [
       "DeepWebSolutions\\Config\\Composer\\FindWPCoreCalls::postAutoloadDump"
     ],
 
-    "generate-autoloader": "@composer dump-autoload --ignore-platform-reqs -o",
-
-    "format:php": [
-      "phpcbf --standard=./.phpcs.xml --basepath=. ./ -v"
-    ],
+    "format:php": "phpcbf --standard=./.phpcs.xml --basepath=. ./ -v",
     "lint:php": [
       "@lint:php:phpcs",
       "@lint:php:phpmd",
@@ -51,27 +48,26 @@
     "lint:php:phpstan": "phpstan analyse -c ./.phpstan.neon -v --memory-limit=1G",
 
     "internationalize": [
-      "@makepot",
-      "@updatepo",
-      "@makemo",
-      "@makephp"
+      "@i18n:makepot",
+      "@i18n:updatepo",
+      "@i18n:makemo",
+      "@i18n:makephp"
     ],
-    "makepot": "wp i18n make-pot ./ --slug=dws-wp-framework-bootstrapper",
-    "updatepo": "wp i18n update-po ./languages/dws-wp-framework-bootstrapper.pot",
-    "makemo": "wp i18n make-mo ./languages/",
-    "makephp": "wp i18n make-php ./languages/",
+    "i18n:makepot": "wp i18n make-pot ./ --slug=dws-wp-framework-bootstrapper",
+    "i18n:updatepo": "wp i18n update-po ./languages/dws-wp-framework-bootstrapper.pot",
+    "i18n:makemo": "wp i18n make-mo ./languages/",
+    "i18n:makephp": "wp i18n make-php ./languages/",
 
-    "selenium:start": "selenium-server standalone --port 4444",
     "tests:clean": "@php ./vendor/bin/codecept clean",
-    "tests": [
-      "@tests:integration",
-      "@tests:end-to-end"
+    "tests:run": [
+      "@tests:run:integration",
+      "@tests:run:end-to-end"
     ],
-    "tests:integration": [
+    "tests:run:integration": [
       "Composer\\Config::disableProcessTimeout",
       "@php ./vendor/bin/codecept run Integration --debug"
     ],
-    "tests:end-to-end": [
+    "tests:run:end-to-end": [
       "Composer\\Config::disableProcessTimeout",
       "@php ./vendor/bin/codecept run EndToEnd  --debug"
     ],

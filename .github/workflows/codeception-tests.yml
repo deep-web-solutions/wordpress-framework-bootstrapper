@@ -8,63 +8,27 @@ on:
 
 jobs:
   test:
-    env:
-      # Must match the environment variables in the .dist.env file
-      WORDPRESS_ROOT_DIR: /tmp/wordpress
-      TEST_TABLE_PREFIX: test_
-      WORDPRESS_TABLE_PREFIX: wp_
-      WORDPRESS_URL: http://localhost:8888
-      WORDPRESS_DOMAIN: localhost:8888
-      WORDPRESS_ADMIN_PATH: /wp-admin
-      WORDPRESS_ADMIN_USERNAME: admin
-      WORDPRESS_ADMIN_PASSWORD: password
-      CHROMEDRIVER_HOST: localhost
-      CHROMEDRIVER_PORT: 4444
-
     strategy:
       fail-fast: false
       matrix:
         php: [ 8.2, 8.3, 8.4 ]
-        WP_VERSION: [ latest, nightly ]
+        WP_VERSION: [ null, WordPress/WordPress#master ]
         include:
           - php: 8.4
-            WP_VERSION: 6.6
+            WP_VERSION: WordPress/WordPress#6.6
           - php: 8.3
-            WP_VERSION: 6.7
+            WP_VERSION: WordPress/WordPress#6.7
           - php: 8.3
-            WP_VERSION: 6.6
+            WP_VERSION: WordPress/WordPress#6.6
           - php: 8.4
-            WP_VERSION: 6.7
+            WP_VERSION: WordPress/WordPress#6.7
+
+
 
     runs-on: ubuntu-latest
 
-    services:
-      mariadb:
-        image: mariadb:latest
-        ports:
-          - 3306
-        env:
-          MYSQL_DATABASE: wordpress_test
-          MYSQL_ROOT_PASSWORD: password
-          options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
-
     steps:
       - uses: actions/checkout@v4
-
-      - name: Verify MariaDB connection
-        env:
-          DB_PORT: ${{ job.services.mariadb.ports[3306] }}
-        run: |
-          while ! mysqladmin ping -h"127.0.0.1" -P"$DB_PORT" --silent; do
-            sleep 1
-          done
-
-      - name: Set database connection env globals
-        env:
-          DB_PORT: ${{ job.services.mariadb.ports[3306] }}
-        run: |
-          echo "WORDPRESS_DB_HOST=127.0.0.1:$DB_PORT" >> $GITHUB_ENV
-          echo "WORDPRESS_DB_URL=mysql://root:password@127.0.0.1:$DB_PORT/wordpress_test" >> $GITHUB_ENV
 
       - name: Setup proper PHP version
         uses: shivammathur/setup-php@v2
@@ -89,48 +53,15 @@ jobs:
       - name: Install dependencies
         run: composer run-script packages-install
 
-      - name: Setup WP CLI tools
-        run: |
-          curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-          chmod +x wp-cli.phar
-          mv wp-cli.phar /usr/local/bin/wp
+      - name: Prepare test plugin
+        run: composer update --no-dev --no-interaction --ignore-platform-reqs --working-dir=tests/Support/dws-framework-bootstrapper-test-plugin
 
-      - name: Install WordPress
-        run: |
-          mkdir -p $WORDPRESS_ROOT_DIR
-          cd $WORDPRESS_ROOT_DIR
-          wp core download --version=${{ matrix.WP_VERSION }}
-          wp config create --dbname="wordpress_test" --dbuser="root" --dbpass="password" --dbhost="$WORDPRESS_DB_HOST" --dbprefix="$WORDPRESS_TABLE_PREFIX"
-          wp core install --url="$WORDPRESS_URL" --title="Test" --admin_user="$WORDPRESS_ADMIN_USERNAME" --admin_password="$WORDPRESS_ADMIN_PASSWORD" --admin_email="admin@test.com" --skip-email
-          wp rewrite structure '/%postname%/' --hard
-          wp core update-db
-
-      - name: Copy the plugin to the plugins directory
-        run: |
-          cp -r $GITHUB_WORKSPACE/tests/Support/dws-framework-bootstrapper-test-plugin $WORDPRESS_ROOT_DIR/wp-content/plugins/dws-framework-bootstrapper-test-plugin/
-          composer update --no-dev --no-interaction --ignore-platform-reqs --working-dir=$WORDPRESS_ROOT_DIR/wp-content/plugins/dws-framework-bootstrapper-test-plugin/
-          chmod -R 777 $WORDPRESS_ROOT_DIR
-
-      - name: Activate the test plugin
-        run: |
-          cd $WORDPRESS_ROOT_DIR
-          wp plugin activate dws-framework-bootstrapper-test-plugin
-          wp plugin list --status=active
+      - name: Start wp-env
+        uses: godaddy-wordpress/setup-wp-env@v1
+        with:
+          core: ${{ matrix.WP_VERSION }}
+          phpVersion: ${{ matrix.php }}
+          plugins: '[ "./tests/Support/dws-framework-bootstrapper-test-plugin" ]'
 
       - name: Generate DB export
-        run: wp db export $GITHUB_WORKSPACE/tests/Support/Data/dump.sql --path=$WORDPRESS_ROOT_DIR
-
-      - name: Setup proper PHP version
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          tools: composer
-
-      - name: Start Selenium
-        run: selenium-server standalone --port $CHROMEDRIVER_PORT &
-
-      - name: Start a web server
-        run: php -S "$WORDPRESS_DOMAIN" -t "$WORDPRESS_ROOT_DIR" >/dev/null 2>&1 &
-
-      - name: Run Codeception tests
-        run: composer run-script test
+        run: wp-env run cli wp db export ./tests/Support/Data/dump.sql

@@ -6,6 +6,9 @@
     "deep-web-solutions/wp-framework-bootstrapper": "trunk@dev"
   },
   "scripts": {
-    "packages-install": "@composer install --ignore-platform-reqs --no-interaction"
+    "packages-update": [
+      "@composer clear-cache",
+      "@composer update --prefer-stable --ignore-platform-reqs --no-interaction"
+    ]
   }
 }
