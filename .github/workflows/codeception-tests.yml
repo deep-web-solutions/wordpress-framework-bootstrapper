@@ -54,7 +54,13 @@ jobs:
           npm ci
 
       - name: Prepare environment vars
-        run: cp ./tests/.dist.env ./tests/.env
+        run: |
+          cp ./tests/.dist.env ./tests/.env
+          touch .wp-env.override.json
+          echo "{\"core\": \"${{ matrix.WP_VERSION }}\", \"phpVersion\": \"${{ matrix.php }}\"}" > .wp-env.override.json
+
+      - name: Start WordPress
+        run: npm run wp-env:start
 
       - name: Create database fixture
         run: npm run tests:export-db

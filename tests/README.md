@@ -23,6 +23,7 @@
 
 1. Create your database fixture:
    ```bash
+   npm run wp-env:start
    npm run tests:export-db
    ```
 
