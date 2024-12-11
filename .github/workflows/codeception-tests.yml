@@ -57,7 +57,7 @@ jobs:
         run: |
           cp ./tests/.dist.env ./tests/.env
           touch .wp-env.override.json
-          echo "{\"core\": \"${{ matrix.WP_VERSION }}\", \"phpVersion\": \"${{ matrix.php }}\"}" > .wp-env.override.json
+          echo "{\"core\": \"${{ matrix.WP_VERSION }}\", \"phpVersion\": \"${{ matrix.php }}\", \"env\": { \"development\": { \"plugins\": [] } } }" > .wp-env.override.json
 
       - name: Start WordPress
         run: npm run wp-env:start
