@@ -16,7 +16,6 @@
     "php": ">=8.4"
   },
   "require-dev": {
-    "johnpbloch/wordpress-core": "6.7.*",
     "deep-web-solutions/wordpress-configs": "dev-trunk",
 
     "wp-cli/i18n-command": "^2",
@@ -45,7 +44,7 @@
     ],
     "lint:php:phpcs": "phpcs --standard=./.phpcs.xml --basepath=. ./ -v",
     "lint:php:phpmd": "phpmd ./ ansi ./.phpmd.xml -v",
-    "lint:php:phpstan": "phpstan analyse -c ./.phpstan.neon -vvv --debug --memory-limit=1G",
+    "lint:php:phpstan": "phpstan analyse -c ./.phpstan.neon -v --memory-limit=1G",
 
     "internationalize": [
       "@i18n:makepot",

@@ -17,6 +17,7 @@ namespace DeepWebSolutions\Framework;
  */
 function get_plugin_metadata( $plugin_basename, $property = null ) {
 	if ( ! \function_exists( '\get_plugin_data' ) ) {
+		/* @phpstan-ignore requireOnce.fileNotFound */
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 	}
 
@@ -25,12 +26,10 @@ function get_plugin_metadata( $plugin_basename, $property = null ) {
 
 	$metadata = \get_plugin_data( $plugin_file, false, $can_translate );
 	if ( null === $property ) {
-		/* @phpstan-ignore return.type */
 		return $metadata;
 	}
 
 	if ( \is_string( $property ) && isset( $metadata[ $property ] ) ) {
-		/* @phpstan-ignore return.type */
 		return $metadata[ $property ];
 	}
 
