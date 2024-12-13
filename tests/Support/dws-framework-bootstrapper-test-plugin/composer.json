@@ -14,11 +14,10 @@
   "require": {
     "deep-web-solutions/wp-framework-bootstrapper": "@dev"
   },
+  "minimum-stability": "dev",
+  "prefer-stable": false,
+
   "scripts": {
-    "generate-autoloader": "@composer dump-autoload --ignore-platform-reqs -o",
-    "packages-update": [
-      "@composer clear-cache",
-      "@composer update --prefer-stable --ignore-platform-reqs --no-interaction"
-    ]
+    "generate-autoloader": "@composer dump-autoload --ignore-platform-reqs -o"
   }
 }

@@ -10,7 +10,7 @@
     "selenium:start": "docker container start selenium-chromium",
     "selenium:stop": "docker container stop selenium-chromium",
 
-    "tests:start": "wp-env start && wp-env run tests-cli --env-cwd=wp-content/plugins/dws-framework-bootstrapper-test-plugin composer run-script packages-update && npm run selenium:start",
+    "tests:start": "wp-env start && wp-env run tests-cli --env-cwd=wp-content/plugins/dws-framework-bootstrapper-test-plugin composer run-script generate-autoloader && npm run selenium:start",
     "tests:run": "npm run tests:start && npm run tests:run:integration && npm run tests:run:end-to-end",
     "tests:run:integration": "wp-env run tests-wordpress --env-cwd=project composer run-script tests:run:integration",
     "tests:run:end-to-end": "wp-env run tests-wordpress --env-cwd=project composer run-script tests:run:end-to-end",
