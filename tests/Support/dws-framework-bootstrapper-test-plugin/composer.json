@@ -5,19 +5,25 @@
   "repositories": [
     {
       "type": "path",
-      "url": "../../../",
+      "url": "../dws-framework-bootstrapper",
       "options": {
         "symlink": true
       }
+    },
+    {
+      "packagist.org": false
     }
   ],
   "require": {
-    "deep-web-solutions/wp-framework-bootstrapper": "@dev"
+    "deep-web-solutions/wp-framework-bootstrapper": "*"
   },
   "minimum-stability": "dev",
   "prefer-stable": false,
 
   "scripts": {
-    "generate-autoloader": "@composer dump-autoload --ignore-platform-reqs -o"
+    "packages-update": [
+      "@composer clear-cache",
+      "@composer update --ignore-platform-reqs --no-interaction"
+    ]
   }
 }
