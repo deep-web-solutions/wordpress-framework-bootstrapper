@@ -1,12 +1,12 @@
 {
   "phpVersion": "8.3",
+  "mappings": {
+    "wp-content/plugins/dws-framework-bootstrapper-test-plugin": "./tests/Support/dws-framework-bootstrapper-test-plugin",
+    "wp-content/plugins/dws-framework-bootstrapper-test-plugin/vendor/deep-web-solutions/wp-framework-bootstrapper": "."
+  },
   "env": {
-    "development": {
-      "plugins": [ "." ]
-    },
     "tests": {
       "mappings": {
-        "wp-content/plugins/dws-framework-bootstrapper-test-plugin": "./tests/Support/dws-framework-bootstrapper-test-plugin",
         "project": "."
       }
     }

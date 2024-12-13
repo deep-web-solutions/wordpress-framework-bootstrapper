@@ -23,6 +23,8 @@
 
     "roave/security-advisories": "dev-latest"
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
 
   "autoload": {
     "files": [
