@@ -16,15 +16,22 @@ namespace DeepWebSolutions\Framework;
  * @return  ($property is null ? PluginMetaData : ($property is PluginMetaKey ? PluginMetaData[PluginMetaKey] : null))
  */
 function get_plugin_metadata( $plugin_basename, $property = null ) {
-	if ( ! \function_exists( '\get_plugin_data' ) ) {
-		/* @phpstan-ignore requireOnce.fileNotFound */
-		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+	static $plugin_data = array();
+
+	$can_translate = 0 < \did_action( 'init' );
+	$translate_key = $can_translate ? 'translated' : 'raw';
+
+	if ( ! isset( $plugin_data[ $plugin_basename ][ $translate_key ] ) ) {
+		$plugin_file = WP_PLUGIN_DIR . '/' . $plugin_basename;
+		if ( ! \function_exists( '\get_plugin_data' ) ) {
+			/* @phpstan-ignore requireOnce.fileNotFound */
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+
+		$plugin_data[ $plugin_basename ][ $translate_key ] = \get_plugin_data( $plugin_file, false, $can_translate );
 	}
 
-	$plugin_file   = WP_PLUGIN_DIR . '/' . $plugin_basename;
-	$can_translate = 0 < \did_action( 'init' );
-
-	$metadata = \get_plugin_data( $plugin_file, false, $can_translate );
+	$metadata = $plugin_data[ $plugin_basename ][ $translate_key ];
 	if ( null === $property ) {
 		return $metadata;
 	}
