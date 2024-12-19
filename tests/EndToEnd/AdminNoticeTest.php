@@ -18,7 +18,7 @@ class AdminNoticeTest extends Unit {
 
     public function test_admin_notice_output() {
 	    require_once WP_PLUGIN_DIR . '/dws-framework-bootstrapper-test-plugin/bootstrap.php';
-	    if ( true === \DeepWebSolutions\Framework\is_bootstrapper_initialized() ) {
+	    if ( true === \DeepWebSolutions\Framework\is_bootstrapper_component_initialized() ) {
 		    codecept_debug( 'Bootstrapper has been initialized ... checking that the message is NOT present' );
 		    $this->tester->dontSee( 'Your environment does not meet all the system requirements listed below' );
 	    } else {

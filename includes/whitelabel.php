@@ -35,7 +35,7 @@ function get_whitelabel_author_name() {
  * @return  string
  */
 function get_whitelabel_author_logo_path() {
-	$author_logo_path = get_bootstrapper_dir_path() . '/assets/dws_logo.svg';
+	$author_logo_path = get_bootstrapper_component_dir_path() . '/assets/dws_logo.svg';
 
 	if ( \defined( __NAMESPACE__ . '\WHITELABEL_AUTHOR_LOGO_PATH' ) ) {
 		$_author_logo_path = \constant( __NAMESPACE__ . '\WHITELABEL_AUTHOR_LOGO_PATH' );

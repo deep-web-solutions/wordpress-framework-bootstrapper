@@ -14,7 +14,7 @@ namespace DeepWebSolutions\Framework;
  *
  * @return  string
  */
-function get_bootstrapper_basename() {
+function get_bootstrapper_component_basename() {
 	$basename = \constant( __NAMESPACE__ . '\BOOTSTRAPPER_BASENAME' );
 	\assert( \is_string( $basename ) );
 
@@ -29,7 +29,7 @@ function get_bootstrapper_basename() {
  *
  * @return  string
  */
-function get_bootstrapper_dir_path() {
+function get_bootstrapper_component_dir_path() {
 	$dir_path = \constant( __NAMESPACE__ . '\BOOTSTRAPPER_DIR_PATH' );
 	\assert( \is_string( $dir_path ) );
 
@@ -44,7 +44,7 @@ function get_bootstrapper_dir_path() {
  *
  * @return  string
  */
-function get_bootstrapper_dir_url() {
+function get_bootstrapper_component_dir_url() {
 	$dir_url = \constant( __NAMESPACE__ . '\BOOTSTRAPPER_DIR_URL' );
 	\assert( \is_string( $dir_url ) );
 
@@ -65,8 +65,8 @@ function get_bootstrapper_dir_url() {
  * @return  ($property is null ? PluginMetaData : ($property is PluginMetaKey ? PluginMetaData[PluginMetaKey] : null))
  * @phpstan-ignore-next-line return.unusedType
  */
-function get_bootstrapper_metadata( $property = null ) {
-	return get_plugin_metadata( get_bootstrapper_basename(), $property );
+function get_bootstrapper_component_metadata( $property = null ) {
+	return get_plugin_metadata( get_bootstrapper_component_basename(), $property );
 }
 
 /**
@@ -77,7 +77,7 @@ function get_bootstrapper_metadata( $property = null ) {
  *
  * @return  string
  */
-function get_bootstrapper_name() {
+function get_bootstrapper_component_name() {
 	return \wp_sprintf(
 		/* translators: %s: Author name */
 		\__( '%s Framework Bootstrapper', 'dws-wp-framework-bootstrapper' ),
@@ -93,8 +93,8 @@ function get_bootstrapper_name() {
  *
  * @return  string
  */
-function get_bootstrapper_version() {
-	$version = get_bootstrapper_metadata( 'Version' );
+function get_bootstrapper_component_version() {
+	$version = get_bootstrapper_component_metadata( 'Version' );
 	\assert( \is_string( $version ) );
 
 	return $version;
@@ -108,7 +108,7 @@ function get_bootstrapper_version() {
  *
  * @return  true|\WP_Error
  */
-function get_bootstrapper_requirements_status() {
+function get_bootstrapper_component_requirements_status() {
 	$requirements = \constant( __NAMESPACE__ . '\BOOTSTRAPPER_REQUIREMENTS' );
 	\assert( $requirements instanceof \WP_Error || true === $requirements );
 
@@ -116,15 +116,15 @@ function get_bootstrapper_requirements_status() {
 }
 
 /**
- * Returns whether the bootstrapper has managed to initialize successfully or not in the current environment.
+ * Returns whether the bootstrapper component has managed to initialize successfully or not in the current environment.
  *
  * @since   2.0.0
  * @version 2.0.0
  *
  * @return  bool
  */
-function is_bootstrapper_initialized() {
-	return true === get_bootstrapper_requirements_status();
+function is_bootstrapper_component_initialized() {
+	return true === get_bootstrapper_component_requirements_status();
 }
 
 // endregion

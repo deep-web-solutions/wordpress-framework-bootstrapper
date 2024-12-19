@@ -44,16 +44,16 @@ require_once __DIR__ . '/functions.php';
 	'init',
 	static function () {
 		\load_plugin_textdomain(
-			get_bootstrapper_metadata( 'TextDomain' ),
+			get_bootstrapper_component_metadata( 'TextDomain' ),
 			false,
-			\dirname( get_bootstrapper_basename() ) . get_bootstrapper_metadata( 'DomainPath' )
+			\dirname( get_bootstrapper_component_basename() ) . get_bootstrapper_component_metadata( 'DomainPath' )
 		);
 	}
 );
 
 // Bootstrap the bootstrapper (maybe)!
-\define( __NAMESPACE__ . '\BOOTSTRAPPER_REQUIREMENTS', validate_plugin_requirements( get_bootstrapper_basename() ) );
-if ( true !== is_bootstrapper_initialized() ) {
+\define( __NAMESPACE__ . '\BOOTSTRAPPER_REQUIREMENTS', validate_plugin_requirements( get_bootstrapper_component_basename() ) );
+if ( true !== is_bootstrapper_component_initialized() ) {
 	/* @phpstan-ignore argument.type */
-	output_requirements_error( get_bootstrapper_name(), get_bootstrapper_version(), get_bootstrapper_requirements_status() );
+	output_requirements_error( get_bootstrapper_component_name(), get_bootstrapper_component_version(), get_bootstrapper_component_requirements_status() );
 }
