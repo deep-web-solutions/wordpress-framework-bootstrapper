@@ -1,3 +1,8 @@
+> [!IMPORTANT]
+> **This package is no longer maintained.** Superseded by [`ahegyes/wp-framework-bootstrap`](https://github.com/ahegyes/wordpress-framework) as part of the v2 framework rewrite. The repository remains available for historical reference.
+
+---
+
 # DWS WordPress Framework - Bootstrapper
 
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)

@@ -1,6 +1,7 @@
 {
   "name": "deep-web-solutions/wp-framework-bootstrapper",
   "type": "library",
+  "abandoned": "ahegyes/wp-framework-bootstrap",
 
   "description": "A set of related functions that help bootstrap and version the other DWS WordPress Framework packages.",
   "keywords": ["wordpress", "framework", "Deep Web Solutions", "bootstrapper"],
